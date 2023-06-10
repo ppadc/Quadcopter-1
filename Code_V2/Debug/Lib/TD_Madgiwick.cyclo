@@ -1,0 +1,10 @@
+TD_Madgiwick.c:18:14:quat_mult	1
+TD_Madgiwick.c:37:6:quat_scalar	1
+TD_Madgiwick.c:54:6:quat_add	1
+TD_Madgiwick.c:71:6:quat_sub	1
+TD_Madgiwick.c:86:14:quat_conjugate	1
+TD_Madgiwick.c:101:7:quat_Norm	1
+TD_Madgiwick.c:113:6:quat_Normalization	1
+TD_Madgiwick.c:130:6:Madgwick_update	3
+TD_Madgiwick.c:252:6:Madgwick_imu	2
+TD_Madgiwick.c:327:6:Quat2Angle	3
