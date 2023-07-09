@@ -1,0 +1,164 @@
+%implements s20_b0_7htti_Derivatives "C"
+
+%function Derivatives(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+NeslSimulationData *simulationData;
+NeuDiagnosticManager *diagnosticManager;
+NeuDiagnosticTree *diagnosticTree;
+XDot_simcape_real_time_V2_T *_rtXdot;
+real_T tmp_0[40];
+real_T time;
+int32_T tmp_2;
+int_T tmp_1[11];
+boolean_T tmp;
+%closefile localVarDecl
+_rtXdot = %<(SLibCG_SE(SLibGetContStatesDerivativeStructPtr()))>;
+/* {S!d352}Derivatives for Integrator: '<Root>/Integrator1' */
+_rtXdot->Integrator1_CSTATE = simcape_real_time_V2_B.Integrator;
+/* {S!d354}Derivatives for Integrator: '<Root>/Integrator3' */
+_rtXdot->Integrator3_CSTATE = simcape_real_time_V2_B.Integrator2;
+/* {S!d356}Derivatives for Integrator: '<Root>/Integrator5' */
+_rtXdot->Integrator5_CSTATE = simcape_real_time_V2_B.Integrator4;
+/* {S!d358}Derivatives for Integrator: '<Root>/Integrator' */
+_rtXdot->Integrator_CSTATE = simcape_real_time_V2_B.x2dot;
+/* {S!d360}Derivatives for Integrator: '<Root>/Integrator2' */
+_rtXdot->Integrator2_CSTATE = simcape_real_time_V2_B.y2dot;
+/* {S!d362}Derivatives for Integrator: '<Root>/Integrator4' */
+_rtXdot->Integrator4_CSTATE = simcape_real_time_V2_B.z2dot;
+/* {S!d364}Derivatives for Integrator: '<Root>/Integrator7' */
+_rtXdot->Integrator7_CSTATE = simcape_real_time_V2_B.Integrator6;
+/* {S!d366}Derivatives for Integrator: '<Root>/Integrator9' */
+_rtXdot->Integrator9_CSTATE = simcape_real_time_V2_B.Integrator8;
+/* {S!d368}Derivatives for Integrator: '<Root>/Integrator11' */
+_rtXdot->Integrator11_CSTATE = simcape_real_time_V2_B.Integrator10;
+/* {S!d370}Derivatives for Integrator: '<Root>/Integrator6' */
+_rtXdot->Integrator6_CSTATE = simcape_real_time_V2_B.roll2dot;
+/* {S!d372}Derivatives for Integrator: '<Root>/Integrator8' */
+_rtXdot->Integrator8_CSTATE = simcape_real_time_V2_B.pitch2dot;
+/* {S!d374}Derivatives for Integrator: '<Root>/Integrator10' */
+_rtXdot->Integrator10_CSTATE = simcape_real_time_V2_B.yaw2dot;
+/* {S!d376}Derivatives for SimscapeInputBlock: '<S50>/INPUT_5_1_1' */
+_rtXdot->simcape_real_time_V2Simulink_PS[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink_PS[1];
+_rtXdot->simcape_real_time_V2Simulink_PS[1] = ((simcape_real_time_V2_DW.INPUT_5_1_1_Discrete - simcape_real_time_V2_X.simcape_real_time_V2Simulink_PS[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink_PS[1]) * 500.0;
+/* {S!d378}Derivatives for SimscapeInputBlock: '<S50>/INPUT_10_1_1' */
+_rtXdot->simcape_real_time_V2Simulink__f[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink__f[1];
+_rtXdot->simcape_real_time_V2Simulink__f[1] = ((simcape_real_time_V2_DW.INPUT_10_1_1_Discrete - simcape_real_time_V2_X.simcape_real_time_V2Simulink__f[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink__f[1]) * 500.0;
+/* {S!d380}Derivatives for SimscapeInputBlock: '<S50>/INPUT_9_1_1' */
+_rtXdot->simcape_real_time_V2Simulink__i[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink__i[1];
+_rtXdot->simcape_real_time_V2Simulink__i[1] = ((simcape_real_time_V2_DW.INPUT_9_1_1_Discrete - simcape_real_time_V2_X.simcape_real_time_V2Simulink__i[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink__i[1]) * 500.0;
+/* {S!d382}Derivatives for SimscapeInputBlock: '<S50>/INPUT_6_1_1' */
+_rtXdot->simcape_real_time_V2Simulink__b[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink__b[1];
+_rtXdot->simcape_real_time_V2Simulink__b[1] = ((simcape_real_time_V2_B.Integrator7 - simcape_real_time_V2_X.simcape_real_time_V2Simulink__b[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink__b[1]) * 500.0;
+/* {S!d384}Derivatives for SimscapeInputBlock: '<S50>/INPUT_7_1_1' */
+_rtXdot->simcape_real_time_V2Simulink_it[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink_it[1];
+_rtXdot->simcape_real_time_V2Simulink_it[1] = ((simcape_real_time_V2_B.Integrator9 - simcape_real_time_V2_X.simcape_real_time_V2Simulink_it[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink_it[1]) * 500.0;
+/* {S!d386}Derivatives for SimscapeInputBlock: '<S50>/INPUT_8_1_1' */
+_rtXdot->simcape_real_time_V2Simulink_ig[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink_ig[1];
+_rtXdot->simcape_real_time_V2Simulink_ig[1] = ((simcape_real_time_V2_B.Integrator11 - simcape_real_time_V2_X.simcape_real_time_V2Simulink_ig[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink_ig[1]) * 500.0;
+/* {S!d388}Derivatives for SimscapeExecutionBlock: '<S50>/STATE_1' */
+simulationData = (NeslSimulationData *)simcape_real_time_V2_DW.STATE_1_SimData;
+time = %<(SLibCG_SE(LibGetT()))>;
+simulationData->mData->mTime.mN = 1;
+simulationData->mData->mTime.mX = &time;
+simulationData->mData->mContStates.mN = 8;
+simulationData->mData->mContStates.mX = &simcape_real_time_V2_X.simcape_real_time_V2Revolute_Jo[0];
+simulationData->mData->mDiscStates.mN = 0;
+simulationData->mData->mDiscStates.mX = &simcape_real_time_V2_DW.STATE_1_Discrete;
+simulationData->mData->mModeVector.mN = 0;
+simulationData->mData->mModeVector.mX = &simcape_real_time_V2_DW.STATE_1_Modes;
+tmp = %<(SLibCG_SE(SLibCGIRGetSolverFoundZcEvents()))>;
+simulationData->mData->mFoundZcEvents = tmp;
+simulationData->mData->mIsMajorTimeStep = %<(SLibCG_SE(LibIsMajorTimeStep()))>;
+tmp = %<(SLibCG_SE(SLibCGIRGetSolverAssertCheck()))>;
+simulationData->mData->mIsSolverAssertCheck = tmp;
+simulationData->mData->mIsSolverCheckingCIC = false;
+tmp = %<(SLibCG_SE(RTMIsSolverComputingJacobian()))>;
+simulationData->mData->mIsComputingJacobian = tmp;
+simulationData->mData->mIsEvaluatingF0 = false;
+simulationData->mData->mIsSolverRequestingReset = false;
+simulationData->mData->mIsModeUpdateTimeStep = %<(SLibCG_SE(RTMGetIsModeUpdateTimeStep()))>;
+tmp_1[0] = 0;
+tmp_0[0] = simcape_real_time_V2_B.INPUT_5_1_1[0];
+tmp_0[1] = simcape_real_time_V2_B.INPUT_5_1_1[1];
+tmp_0[2] = simcape_real_time_V2_B.INPUT_5_1_1[2];
+tmp_0[3] = simcape_real_time_V2_B.INPUT_5_1_1[3];
+tmp_1[1] = 4;
+tmp_0[4] = simcape_real_time_V2_B.INPUT_10_1_1[0];
+tmp_0[5] = simcape_real_time_V2_B.INPUT_10_1_1[1];
+tmp_0[6] = simcape_real_time_V2_B.INPUT_10_1_1[2];
+tmp_0[7] = simcape_real_time_V2_B.INPUT_10_1_1[3];
+tmp_1[2] = 8;
+tmp_0[8] = simcape_real_time_V2_B.INPUT_9_1_1[0];
+tmp_0[9] = simcape_real_time_V2_B.INPUT_9_1_1[1];
+tmp_0[10] = simcape_real_time_V2_B.INPUT_9_1_1[2];
+tmp_0[11] = simcape_real_time_V2_B.INPUT_9_1_1[3];
+tmp_1[3] = 12;
+tmp_0[12] = simcape_real_time_V2_B.INPUT_6_1_1[0];
+tmp_0[13] = simcape_real_time_V2_B.INPUT_6_1_1[1];
+tmp_0[14] = simcape_real_time_V2_B.INPUT_6_1_1[2];
+tmp_0[15] = simcape_real_time_V2_B.INPUT_6_1_1[3];
+tmp_1[4] = 16;
+tmp_0[16] = simcape_real_time_V2_B.INPUT_7_1_1[0];
+tmp_0[17] = simcape_real_time_V2_B.INPUT_7_1_1[1];
+tmp_0[18] = simcape_real_time_V2_B.INPUT_7_1_1[2];
+tmp_0[19] = simcape_real_time_V2_B.INPUT_7_1_1[3];
+tmp_1[5] = 20;
+tmp_0[20] = simcape_real_time_V2_B.INPUT_8_1_1[0];
+tmp_0[21] = simcape_real_time_V2_B.INPUT_8_1_1[1];
+tmp_0[22] = simcape_real_time_V2_B.INPUT_8_1_1[2];
+tmp_0[23] = simcape_real_time_V2_B.INPUT_8_1_1[3];
+tmp_1[6] = 24;
+tmp_0[24] = simcape_real_time_V2_B.INPUT_1_1_1[0];
+tmp_0[25] = simcape_real_time_V2_B.INPUT_1_1_1[1];
+tmp_0[26] = simcape_real_time_V2_B.INPUT_1_1_1[2];
+tmp_0[27] = simcape_real_time_V2_B.INPUT_1_1_1[3];
+tmp_1[7] = 28;
+tmp_0[28] = simcape_real_time_V2_B.INPUT_2_1_1[0];
+tmp_0[29] = simcape_real_time_V2_B.INPUT_2_1_1[1];
+tmp_0[30] = simcape_real_time_V2_B.INPUT_2_1_1[2];
+tmp_0[31] = simcape_real_time_V2_B.INPUT_2_1_1[3];
+tmp_1[8] = 32;
+tmp_0[32] = simcape_real_time_V2_B.INPUT_3_1_1[0];
+tmp_0[33] = simcape_real_time_V2_B.INPUT_3_1_1[1];
+tmp_0[34] = simcape_real_time_V2_B.INPUT_3_1_1[2];
+tmp_0[35] = simcape_real_time_V2_B.INPUT_3_1_1[3];
+tmp_1[9] = 36;
+tmp_0[36] = simcape_real_time_V2_B.INPUT_4_1_1[0];
+tmp_0[37] = simcape_real_time_V2_B.INPUT_4_1_1[1];
+tmp_0[38] = simcape_real_time_V2_B.INPUT_4_1_1[2];
+tmp_0[39] = simcape_real_time_V2_B.INPUT_4_1_1[3];
+tmp_1[10] = 40;
+simulationData->mData->mInputValues.mN = 40;
+simulationData->mData->mInputValues.mX = &tmp_0[0];
+simulationData->mData->mInputOffsets.mN = 11;
+simulationData->mData->mInputOffsets.mX = &tmp_1[0];
+simulationData->mData->mDx.mN = 8;
+simulationData->mData->mDx.mX = &_rtXdot->simcape_real_time_V2Revolute_Jo[0];
+diagnosticManager = (NeuDiagnosticManager *)simcape_real_time_V2_DW.STATE_1_DiagMgr;
+diagnosticTree = neu_diagnostic_manager_get_initial_tree(diagnosticManager);
+tmp_2 = ne_simulator_method((NeslSimulator *)simcape_real_time_V2_DW.STATE_1_Simulator, NESL_SIM_DERIVATIVES, simulationData, diagnosticManager);
+if (tmp_2 != 0) {
+    tmp = error_buffer_is_empty(%<(LibGetRTModelErrorStatus())>);
+    if (tmp) {
+        char *msg;
+        msg = rtw_diagnostics_msg(diagnosticTree);
+        %<(LibSetRTModelErrorStatus("msg"))>;
+    }
+}
+/* {E!d388}End of Derivatives for SimscapeExecutionBlock: '<S50>/STATE_1' */
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedDerivativeLocalVars", localVarDecl)>
+%endfunction
+%function DerivativesFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Derivatives(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(2, 5, fcnProtoType)>
+%endfunction

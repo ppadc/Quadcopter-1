@@ -1,0 +1,28 @@
+2023-06-20 09:31:39,174 [INFO] Activator:176 - 
+
+
+2023-06-20 09:31:39,189 [INFO] Activator:177 - !SESSION log4j initialized
+2023-06-20 09:31:43,471 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2023-06-20 09:32:06,340 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-06-20 09:32:06,340 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-06-20 09:32:06,340 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2023-06-20 12:57:46,407 [INFO] Activator:176 - 
+
+
+2023-06-20 12:57:46,407 [INFO] Activator:177 - !SESSION log4j initialized
+2023-06-20 12:57:50,782 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2023-06-20 12:58:12,553 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-06-20 12:58:12,553 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-06-20 12:58:12,553 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2023-06-20 13:30:17,810 [ERROR] ConfigurationRetriever:142 - IOException on connection: connect timed out
+2023-06-20 15:33:16,684 [INFO] Activator:176 - 
+
+
+2023-06-20 15:33:16,686 [INFO] Activator:177 - !SESSION log4j initialized
+2023-06-20 15:33:21,506 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2023-06-20 15:33:42,966 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-06-20 15:33:42,966 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-06-20 15:33:42,967 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2023-06-20 19:07:27,355 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2023-06-20 19:07:30,387 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2023-06-20 19:27:20,863 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketTimeoutException: connect timed out

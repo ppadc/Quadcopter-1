@@ -1,0 +1,10 @@
+13:20:03 **** Incremental Build of configuration Debug for project CODE_Tx ****
+make -j20 all 
+arm-none-eabi-size   CODE_Tx.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20536	    160	   1952	  22648	   5878	CODE_Tx.elf
+Finished building: default.size.stdout
+ 
+
+13:20:03 Build Finished. 0 errors, 0 warnings. (took 157ms)
+

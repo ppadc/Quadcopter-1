@@ -1,0 +1,1042 @@
+%implements s20_b0_7htti_TLCInterface "C"
+
+%function getInputAddr_19_7_2_1_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInput_19_7_2_1_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInputAddr_19_7_2_1_1_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInput_19_7_2_1_1_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInputAddr_19_7_2_1_1_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInput_19_7_2_1_1_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInputAddr_19_8_2_1_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator"
+%endfunction
+
+%function getInput_19_8_2_1_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator"
+%endfunction
+
+%function getInputAddr_19_8_2_1_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator2"
+%endfunction
+
+%function getInput_19_8_2_1_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator2"
+%endfunction
+
+%function getInputAddr_19_8_2_1_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator4"
+%endfunction
+
+%function getInput_19_8_2_1_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator4"
+%endfunction
+
+%function getInputAddr_19_40_2_1_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain7" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_19_40_2_1_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain7" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_19_41_2_1_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.GiihncngsutU2"
+%endfunction
+
+%function getInput_19_41_2_1_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.GiihncngsutU2"
+%endfunction
+
+%function getInputAddr_19_41_2_1_4_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain20"
+%endfunction
+
+%function getInput_19_41_2_1_4_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain20"
+%endfunction
+
+%function getInputAddr_19_41_2_1_4_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain24"
+%endfunction
+
+%function getInput_19_41_2_1_4_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain24"
+%endfunction
+
+%function getInputAddr_19_41_2_1_4_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain26"
+%endfunction
+
+%function getInput_19_41_2_1_4_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain26"
+%endfunction
+
+%function getInputAddr_19_42_2_1_5_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInput_19_42_2_1_5_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInputAddr_19_42_2_1_5_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInput_19_42_2_1_5_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInputAddr_19_42_2_1_5_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInput_19_42_2_1_5_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInputAddr_19_43_2_1_6_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain28"
+%endfunction
+
+%function getInput_19_43_2_1_6_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain28"
+%endfunction
+
+%function getInputAddr_19_43_2_1_6_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain29"
+%endfunction
+
+%function getInput_19_43_2_1_6_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain29"
+%endfunction
+
+%function getInputAddr_19_43_2_1_6_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain30"
+%endfunction
+
+%function getInput_19_43_2_1_6_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain30"
+%endfunction
+
+%function getInputAddr_19_44_2_1_7_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Sum12"
+%endfunction
+
+%function getInput_19_44_2_1_7_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Sum12"
+%endfunction
+
+%function getInputAddr_19_44_2_1_7_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Sum19"
+%endfunction
+
+%function getInput_19_44_2_1_7_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Sum19"
+%endfunction
+
+%function getInputAddr_19_44_2_1_7_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Sum20"
+%endfunction
+
+%function getInput_19_44_2_1_7_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Sum20"
+%endfunction
+
+%function getInputAddr_19_45_2_1_8_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain4"
+%endfunction
+
+%function getInput_19_45_2_1_8_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain4"
+%endfunction
+
+%function getInputAddr_19_45_2_1_8_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain5"
+%endfunction
+
+%function getInput_19_45_2_1_8_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain5"
+%endfunction
+
+%function getInputAddr_19_45_2_1_8_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain6"
+%endfunction
+
+%function getInput_19_45_2_1_8_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain6"
+%endfunction
+
+%function getInputAddr_19_46_2_1_9_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator6"
+%endfunction
+
+%function getInput_19_46_2_1_9_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator6"
+%endfunction
+
+%function getInputAddr_19_46_2_1_9_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator8"
+%endfunction
+
+%function getInput_19_46_2_1_9_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator8"
+%endfunction
+
+%function getInputAddr_19_46_2_1_9_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator10"
+%endfunction
+
+%function getInput_19_46_2_1_9_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator10"
+%endfunction
+
+%function getInputAddr_19_49_2_1_10_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.T1"
+%endfunction
+
+%function getInput_19_49_2_1_10_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.T1"
+%endfunction
+
+%function getInputAddr_19_49_2_1_10_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.T2"
+%endfunction
+
+%function getInput_19_49_2_1_10_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.T2"
+%endfunction
+
+%function getInputAddr_19_49_2_1_10_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.T3"
+%endfunction
+
+%function getInput_19_49_2_1_10_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.T3"
+%endfunction
+
+%function getInputAddr_19_49_2_1_10_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.T4"
+%endfunction
+
+%function getInput_19_49_2_1_10_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.T4"
+%endfunction
+
+%function getInputAddr_19_53_2_1_11_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInput_19_53_2_1_11_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInputAddr_19_53_2_1_11_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInput_19_53_2_1_11_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInputAddr_19_53_2_1_11_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInput_19_53_2_1_11_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInputAddr_19_53_2_1_11_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain4"
+%endfunction
+
+%function getInput_19_53_2_1_11_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain4"
+%endfunction
+
+%function getInputAddr_19_53_2_1_11_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain5"
+%endfunction
+
+%function getInput_19_53_2_1_11_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain5"
+%endfunction
+
+%function getInputAddr_19_53_2_1_11_1_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain6"
+%endfunction
+
+%function getInput_19_53_2_1_11_1_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain6"
+%endfunction
+
+%function getInputAddr_19_58_2_1_12_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.X"
+%endfunction
+
+%function getInput_19_58_2_1_12_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.X"
+%endfunction
+
+%function getInputAddr_19_58_2_1_12_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.V"
+%endfunction
+
+%function getInput_19_58_2_1_12_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.V"
+%endfunction
+
+%function getInputAddr_19_58_2_1_12_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.A"
+%endfunction
+
+%function getInput_19_58_2_1_12_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.A"
+%endfunction
+
+%function getInputAddr_19_59_2_1_13_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10_d.X"
+%endfunction
+
+%function getInput_19_59_2_1_13_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10_d.X"
+%endfunction
+
+%function getInputAddr_19_59_2_1_13_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10_d.V"
+%endfunction
+
+%function getInput_19_59_2_1_13_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10_d.V"
+%endfunction
+
+%function getInputAddr_19_59_2_1_13_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10_d.A"
+%endfunction
+
+%function getInput_19_59_2_1_13_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10_d.A"
+%endfunction
+
+%function getInputAddr_19_60_2_1_14_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10.X"
+%endfunction
+
+%function getInput_19_60_2_1_14_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10.X"
+%endfunction
+
+%function getInputAddr_19_60_2_1_14_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10.V"
+%endfunction
+
+%function getInput_19_60_2_1_14_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10.V"
+%endfunction
+
+%function getInputAddr_19_60_2_1_14_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10.A"
+%endfunction
+
+%function getInput_19_60_2_1_14_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10.A"
+%endfunction
+
+%function getInputAddr_19_70_2_1_16_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Ux"
+%endfunction
+
+%function getInput_19_70_2_1_16_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Ux"
+%endfunction
+
+%function getInputAddr_19_70_2_1_16_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Uy"
+%endfunction
+
+%function getInput_19_70_2_1_16_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Uy"
+%endfunction
+
+%function getInputAddr_19_70_2_1_16_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.U1"
+%endfunction
+
+%function getInput_19_70_2_1_16_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.U1"
+%endfunction
+
+%function getInputAddr_19_74_2_1_17_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Asin"
+%endfunction
+
+%function getInput_19_74_2_1_17_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Asin"
+%endfunction
+
+%function getInputAddr_19_74_2_1_17_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Asin1"
+%endfunction
+
+%function getInput_19_74_2_1_17_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Asin1"
+%endfunction
+
+%function getInputAddr_19_4_2_3_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtb_t_save"
+%endfunction
+
+%function getInput_19_4_2_3_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtb_t_save"
+%endfunction
+
+%function getInputAddr_19_7_2_3_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInput_19_7_2_3_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInputAddr_19_7_2_3_1_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInput_19_7_2_3_1_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInputAddr_19_7_2_3_1_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInput_19_7_2_3_1_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInputAddr_19_8_2_3_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator"
+%endfunction
+
+%function getInput_19_8_2_3_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator"
+%endfunction
+
+%function getInputAddr_19_8_2_3_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator2"
+%endfunction
+
+%function getInput_19_8_2_3_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator2"
+%endfunction
+
+%function getInputAddr_19_8_2_3_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator4"
+%endfunction
+
+%function getInput_19_8_2_3_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator4"
+%endfunction
+
+%function getInputAddr_19_40_2_3_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain7" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_19_40_2_3_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain7" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_19_41_2_3_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.GiihncngsutU2"
+%endfunction
+
+%function getInput_19_41_2_3_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.GiihncngsutU2"
+%endfunction
+
+%function getInputAddr_19_41_2_3_4_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain20"
+%endfunction
+
+%function getInput_19_41_2_3_4_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain20"
+%endfunction
+
+%function getInputAddr_19_41_2_3_4_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain24"
+%endfunction
+
+%function getInput_19_41_2_3_4_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain24"
+%endfunction
+
+%function getInputAddr_19_41_2_3_4_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain26"
+%endfunction
+
+%function getInput_19_41_2_3_4_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain26"
+%endfunction
+
+%function getInputAddr_19_42_2_3_5_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInput_19_42_2_3_5_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInputAddr_19_42_2_3_5_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInput_19_42_2_3_5_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInputAddr_19_42_2_3_5_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInput_19_42_2_3_5_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInputAddr_19_43_2_3_6_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain28"
+%endfunction
+
+%function getInput_19_43_2_3_6_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain28"
+%endfunction
+
+%function getInputAddr_19_43_2_3_6_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain29"
+%endfunction
+
+%function getInput_19_43_2_3_6_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain29"
+%endfunction
+
+%function getInputAddr_19_43_2_3_6_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain30"
+%endfunction
+
+%function getInput_19_43_2_3_6_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain30"
+%endfunction
+
+%function getInputAddr_19_44_2_3_7_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Sum12"
+%endfunction
+
+%function getInput_19_44_2_3_7_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Sum12"
+%endfunction
+
+%function getInputAddr_19_44_2_3_7_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Sum19"
+%endfunction
+
+%function getInput_19_44_2_3_7_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Sum19"
+%endfunction
+
+%function getInputAddr_19_44_2_3_7_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Sum20"
+%endfunction
+
+%function getInput_19_44_2_3_7_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Sum20"
+%endfunction
+
+%function getInputAddr_19_45_2_3_8_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain4"
+%endfunction
+
+%function getInput_19_45_2_3_8_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain4"
+%endfunction
+
+%function getInputAddr_19_45_2_3_8_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain5"
+%endfunction
+
+%function getInput_19_45_2_3_8_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain5"
+%endfunction
+
+%function getInputAddr_19_45_2_3_8_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain6"
+%endfunction
+
+%function getInput_19_45_2_3_8_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain6"
+%endfunction
+
+%function getInputAddr_19_46_2_3_9_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator6"
+%endfunction
+
+%function getInput_19_46_2_3_9_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator6"
+%endfunction
+
+%function getInputAddr_19_46_2_3_9_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator8"
+%endfunction
+
+%function getInput_19_46_2_3_9_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator8"
+%endfunction
+
+%function getInputAddr_19_46_2_3_9_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator10"
+%endfunction
+
+%function getInput_19_46_2_3_9_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator10"
+%endfunction
+
+%function getInputAddr_19_49_2_3_10_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.T1"
+%endfunction
+
+%function getInput_19_49_2_3_10_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.T1"
+%endfunction
+
+%function getInputAddr_19_49_2_3_10_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.T2"
+%endfunction
+
+%function getInput_19_49_2_3_10_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.T2"
+%endfunction
+
+%function getInputAddr_19_49_2_3_10_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.T3"
+%endfunction
+
+%function getInput_19_49_2_3_10_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.T3"
+%endfunction
+
+%function getInputAddr_19_49_2_3_10_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.T4"
+%endfunction
+
+%function getInput_19_49_2_3_10_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.T4"
+%endfunction
+
+%function getInputAddr_19_53_2_3_11_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInput_19_53_2_3_11_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator1"
+%endfunction
+
+%function getInputAddr_19_53_2_3_11_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInput_19_53_2_3_11_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator3"
+%endfunction
+
+%function getInputAddr_19_53_2_3_11_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInput_19_53_2_3_11_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Integrator5"
+%endfunction
+
+%function getInputAddr_19_53_2_3_11_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain4"
+%endfunction
+
+%function getInput_19_53_2_3_11_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain4"
+%endfunction
+
+%function getInputAddr_19_53_2_3_11_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain5"
+%endfunction
+
+%function getInput_19_53_2_3_11_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain5"
+%endfunction
+
+%function getInputAddr_19_53_2_3_11_1_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Gain6"
+%endfunction
+
+%function getInput_19_53_2_3_11_1_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Gain6"
+%endfunction
+
+%function getInputAddr_19_58_2_3_12_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.X"
+%endfunction
+
+%function getInput_19_58_2_3_12_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.X"
+%endfunction
+
+%function getInputAddr_19_58_2_3_12_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.V"
+%endfunction
+
+%function getInput_19_58_2_3_12_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.V"
+%endfunction
+
+%function getInputAddr_19_58_2_3_12_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.A"
+%endfunction
+
+%function getInput_19_58_2_3_12_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.A"
+%endfunction
+
+%function getInputAddr_19_59_2_3_13_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10_d.X"
+%endfunction
+
+%function getInput_19_59_2_3_13_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10_d.X"
+%endfunction
+
+%function getInputAddr_19_59_2_3_13_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10_d.V"
+%endfunction
+
+%function getInput_19_59_2_3_13_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10_d.V"
+%endfunction
+
+%function getInputAddr_19_59_2_3_13_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10_d.A"
+%endfunction
+
+%function getInput_19_59_2_3_13_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10_d.A"
+%endfunction
+
+%function getInputAddr_19_60_2_3_14_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10.X"
+%endfunction
+
+%function getInput_19_60_2_3_14_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10.X"
+%endfunction
+
+%function getInputAddr_19_60_2_3_14_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10.V"
+%endfunction
+
+%function getInput_19_60_2_3_14_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10.V"
+%endfunction
+
+%function getInputAddr_19_60_2_3_14_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.sf_MATLABFunction10.A"
+%endfunction
+
+%function getInput_19_60_2_3_14_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.sf_MATLABFunction10.A"
+%endfunction
+
+%function getInputAddr_19_69_2_3_15_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&tf"
+%endfunction
+
+%function getInput_19_69_2_3_15_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "tf"
+%endfunction
+
+%function getInputAddr_19_69_2_3_15_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtb_t_save"
+%endfunction
+
+%function getInput_19_69_2_3_15_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtb_t_save"
+%endfunction
+
+%function getInputAddr_19_69_2_3_15_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&AB"
+%endfunction
+
+%function getInput_19_69_2_3_15_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "AB"
+%endfunction
+
+%function getInputAddr_19_70_2_3_16_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Ux"
+%endfunction
+
+%function getInput_19_70_2_3_16_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Ux"
+%endfunction
+
+%function getInputAddr_19_70_2_3_16_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Uy"
+%endfunction
+
+%function getInput_19_70_2_3_16_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Uy"
+%endfunction
+
+%function getInputAddr_19_70_2_3_16_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.U1"
+%endfunction
+
+%function getInput_19_70_2_3_16_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.U1"
+%endfunction
+
+%function getInputAddr_19_74_2_3_17_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Asin"
+%endfunction
+
+%function getInput_19_74_2_3_17_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Asin"
+%endfunction
+
+%function getInputAddr_19_74_2_3_17_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simcape_real_time_V2_B.Asin1"
+%endfunction
+
+%function getInput_19_74_2_3_17_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simcape_real_time_V2_B.Asin1"
+%endfunction
+

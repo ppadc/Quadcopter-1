@@ -1,0 +1,59 @@
+%implements s20_b0_7htti_0_BlockInstanceSetup "C"
+
+%function BlockInstanceSetup(block, system) Output
+%% Subsystems with iterators in IR:
+%% TLC Block Registration buffer:
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("simcape_real_time_V2_e8621d4_1_gateway.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("simcape_real_time_V2_e8621d4_1_gateway.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%<LibAddToCommonIncludes("nesl_rtw.h")>
+%% END  Block Registration buffer
+%endfunction

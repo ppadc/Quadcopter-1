@@ -1,0 +1,10 @@
+16:11:39 **** Incremental Build of configuration Debug for project Code_V1 ****
+make -j20 all 
+arm-none-eabi-size   Code_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49628	    428	   2600	  52656	   cdb0	Code_V1.elf
+Finished building: default.size.stdout
+ 
+
+16:11:39 Build Finished. 0 errors, 0 warnings. (took 168ms)
+

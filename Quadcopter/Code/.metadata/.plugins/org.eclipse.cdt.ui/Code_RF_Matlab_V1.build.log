@@ -1,0 +1,10 @@
+15:02:00 **** Incremental Build of configuration Debug for project Code_RF_Matlab_V1 ****
+make -j20 all 
+arm-none-eabi-size   Code_RF_Matlab_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23464	    128	   2024	  25616	   6410	Code_RF_Matlab_V1.elf
+Finished building: default.size.stdout
+ 
+
+15:02:00 Build Finished. 0 errors, 0 warnings. (took 157ms)
+

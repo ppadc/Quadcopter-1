@@ -1,0 +1,7 @@
+main.c:147:5:main	10
+main.c:280:6:SystemClock_Config	3
+main.c:322:6:quaternion_to_euler	2
+main.c:341:6:LQR_Control	14
+main.c:421:6:read_Sensor	1
+main.c:440:6:HAL_TIM_PeriodElapsedCallback	4
+main.c:482:6:Error_Handler	1

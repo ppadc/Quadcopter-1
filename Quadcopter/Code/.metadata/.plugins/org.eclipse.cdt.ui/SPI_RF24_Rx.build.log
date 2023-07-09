@@ -1,0 +1,10 @@
+21:32:56 **** Incremental Build of configuration Debug for project SPI_RF24_Rx ****
+make -j20 all 
+arm-none-eabi-size   SPI_RF24_Rx.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20580	    128	   1976	  22684	   589c	SPI_RF24_Rx.elf
+Finished building: default.size.stdout
+ 
+
+21:32:56 Build Finished. 0 errors, 0 warnings. (took 144ms)
+

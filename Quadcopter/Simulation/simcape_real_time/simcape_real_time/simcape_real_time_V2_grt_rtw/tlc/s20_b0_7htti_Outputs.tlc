@@ -1,0 +1,1140 @@
+%implements s20_b0_7htti_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+NeslSimulationData *simulationData;
+NeuDiagnosticManager *diagnosticManager;
+NeuDiagnosticTree *diagnosticTree;
+NeuDiagnosticTree *diagnosticTree_0;
+real_T tmp_3[48];
+real_T tmp_0[40];
+real_T tmp_5[6];
+real_T rtb_OUTPUT_1_0[4];
+real_T AB;
+real_T FP_Friction;
+real_T FR_Friction;
+real_T FX_Friction;
+real_T FX_Limit_tmp;
+real_T FY_Friction;
+real_T FZ_Friction;
+real_T F_pitch2dot;
+real_T F_roll2dot;
+real_T rtb_t_save;
+real_T rtb_y_a_save;
+real_T rtb_z_a_save;
+real_T tf;
+real_T time;
+real_T time_0;
+real_T time_1;
+real_T time_2;
+int32_T i;
+int32_T temp;
+int_T tmp_4[12];
+int_T tmp_1[11];
+boolean_T rtb_Compare;
+boolean_T tmp;
+boolean_T tmp_2;
+static const real_T b[4] = %<(TLC_STR_CTX(0))>;
+static const real_T c[4] = %<(TLC_STR_CTX(1))>;
+static const real_T d[4] = %<(TLC_STR_CTX(2))>;
+static const real_T e[4] = %<(TLC_STR_CTX(3))>;
+static const real_T f[4] = %<(TLC_STR_CTX(4))>;
+static const real_T g[4] = %<(TLC_STR_CTX(5))>;
+real_T b_0[4];
+real_T c_0[4];
+real_T d_0[4];
+real_T e_0[4];
+real_T f_0[4];
+real_T g_0[4];
+%closefile localVarDecl
+%assign _modelSS = ""
+
+%assign tlcOutputsFcnOfS19B4 = OpaqueTLCBlockFcn("Outputs", 19, 4, 2, 3, 0)
+%assign tlcOutputsFcnOfS19B7 = OpaqueTLCBlockFcn("Outputs", 19, 7, 2, 3, 1)
+%assign tlcOutputsFcnOfS19B8 = OpaqueTLCBlockFcn("Outputs", 19, 8, 2, 3, 2)
+%assign tlcOutputsFcnOfS19B40 = OpaqueTLCBlockFcn("Outputs", 19, 40, 2, 3, 3)
+%assign tlcOutputsFcnOfS19B41 = OpaqueTLCBlockFcn("Outputs", 19, 41, 2, 3, 4)
+%assign tlcOutputsFcnOfS19B42 = OpaqueTLCBlockFcn("Outputs", 19, 42, 2, 3, 5)
+%assign tlcOutputsFcnOfS19B43 = OpaqueTLCBlockFcn("Outputs", 19, 43, 2, 3, 6)
+%assign tlcOutputsFcnOfS19B44 = OpaqueTLCBlockFcn("Outputs", 19, 44, 2, 3, 7)
+%assign tlcOutputsFcnOfS19B45 = OpaqueTLCBlockFcn("Outputs", 19, 45, 2, 3, 8)
+%assign tlcOutputsFcnOfS19B46 = OpaqueTLCBlockFcn("Outputs", 19, 46, 2, 3, 9)
+%assign tlcOutputsFcnOfS19B49 = OpaqueTLCBlockFcn("Outputs", 19, 49, 2, 3, 10)
+%assign tlcOutputsFcnOfS19B53 = OpaqueTLCBlockFcn("Outputs", 19, 53, 2, 3, 11)
+%assign tlcOutputsFcnOfS19B58 = OpaqueTLCBlockFcn("Outputs", 19, 58, 2, 3, 12)
+%assign tlcOutputsFcnOfS19B59 = OpaqueTLCBlockFcn("Outputs", 19, 59, 2, 3, 13)
+%assign tlcOutputsFcnOfS19B60 = OpaqueTLCBlockFcn("Outputs", 19, 60, 2, 3, 14)
+%assign tlcOutputsFcnOfS19B69 = OpaqueTLCBlockFcn("Outputs", 19, 69, 2, 3, 15)
+%assign tlcOutputsFcnOfS19B70 = OpaqueTLCBlockFcn("Outputs", 19, 70, 2, 3, 16)
+%assign tlcOutputsFcnOfS19B74 = OpaqueTLCBlockFcn("Outputs", 19, 74, 2, 3, 17)
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+    /* {S!d112}DataStoreWrite: '<Root>/Data Store Write' incorporates:
+ *  Constant: '<Root>/Constant5'
+ */
+    simcape_real_time_V2_DW.start = simcape_real_time_V2_P.Constant5_Value;
+    /* {S!d114}MATLAB Function: '<S7>/MATLAB Function13' incorporates:
+ *  DataStoreRead: '<S7>/Data Store Read'
+ *  DataStoreRead: '<S7>/Data Store Read1'
+ *  DataStoreRead: '<S7>/Data Store Read5'
+ *  DataStoreRead: '<S7>/Data Store Read6'
+ *  DataStoreRead: '<S7>/Data Store Read7'
+ */
+    F_roll2dot = simcape_real_time_V2_DW.xyzv[0] - simcape_real_time_V2_DW.x_a;
+    tf = F_roll2dot;
+    FP_Friction = simcape_real_time_V2_DW.xyzv[1] - simcape_real_time_V2_DW.y_a;
+    rtb_t_save = FP_Friction;
+    FX_Friction = simcape_real_time_V2_DW.xyzv[2] - simcape_real_time_V2_DW.z_a;
+    AB = FX_Friction;
+    AB = sqrt((tf * tf + rtb_t_save * rtb_t_save) + AB * AB);
+    if (simcape_real_time_V2_DW.xyzv[3] > 0.0) {
+        tf = AB / simcape_real_time_V2_DW.xyzv[3];
+    } else {
+        tf = 0.0;
+    }
+    if (simcape_real_time_V2_DW.t < tf) {
+        rtb_t_save = simcape_real_time_V2_DW.t + 0.002;
+        temp = 0;
+    } else if (simcape_real_time_V2_DW.t >= tf) {
+        rtb_t_save = 0.0;
+        temp = 1;
+    } else {
+        rtb_t_save = simcape_real_time_V2_DW.t;
+        temp = 0;
+    }
+    if ((AB <= 0.0) && (temp == 1)) {
+        tf = 1.0;
+    } else {
+        rtb_y_a_save = 2.0 * tf * tf * tf;
+        F_pitch2dot = rtb_y_a_save * tf;
+        tf = (12.0 * AB / (F_pitch2dot * tf) * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t + (-30.0 * AB / F_pitch2dot * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t + (20.0 * AB / rtb_y_a_save * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t + (0.0 * simcape_real_time_V2_DW.t * simcape_real_time_V2_DW.t + 0.0 * simcape_real_time_V2_DW.t)))) / AB;
+    }
+    if (temp == 1) {
+        simcape_real_time_V2_B.Px = simcape_real_time_V2_DW.xyzv[0];
+        simcape_real_time_V2_B.Py = simcape_real_time_V2_DW.xyzv[1];
+        simcape_real_time_V2_B.Pz = simcape_real_time_V2_DW.xyzv[2];
+        AB = simcape_real_time_V2_DW.xyzv[0];
+        rtb_y_a_save = simcape_real_time_V2_DW.xyzv[1];
+        rtb_z_a_save = simcape_real_time_V2_DW.xyzv[2];
+    } else {
+        AB = simcape_real_time_V2_DW.x_a;
+        rtb_y_a_save = simcape_real_time_V2_DW.y_a;
+        rtb_z_a_save = simcape_real_time_V2_DW.z_a;
+        simcape_real_time_V2_B.Px = F_roll2dot * tf + simcape_real_time_V2_DW.x_a;
+        simcape_real_time_V2_B.Py = FP_Friction * tf + simcape_real_time_V2_DW.y_a;
+        simcape_real_time_V2_B.Pz = FX_Friction * tf + simcape_real_time_V2_DW.z_a;
+    }
+    /* {S!d116}DataStoreWrite: '<S7>/Data Store Write' */
+    simcape_real_time_V2_DW.z_a = rtb_z_a_save;
+    /* {S!d118}DataStoreWrite: '<S7>/Data Store Write10' */
+    simcape_real_time_V2_DW.Py_pre = simcape_real_time_V2_B.Py;
+    /* {S!d120}DataStoreWrite: '<S7>/Data Store Write11' */
+    simcape_real_time_V2_DW.Pz_pre = simcape_real_time_V2_B.Pz;
+    /* {S!d122}DataStoreWrite: '<S7>/Data Store Write12' incorporates:
+ *  MATLAB Function: '<S7>/MATLAB Function13'
+ */
+    simcape_real_time_V2_DW.phantram_s = tf;
+    /* {S!d124}DataStoreWrite: '<S7>/Data Store Write6' */
+    simcape_real_time_V2_DW.y_a = rtb_y_a_save;
+    /* {S!d126}DataStoreWrite: '<S7>/Data Store Write7' */
+    simcape_real_time_V2_DW.x_a = AB;
+    /* {S!d128}DataStoreWrite: '<S7>/Data Store Write8' */
+    simcape_real_time_V2_DW.t = rtb_t_save;
+    /* {S!d130}DataStoreWrite: '<S7>/Data Store Write9' */
+    simcape_real_time_V2_DW.Px_pre = simcape_real_time_V2_B.Px;
+    /* {S!d132}MATLAB Function: '<S7>/MATLAB Function' incorporates:
+ *  UnitDelay: '<S7>/Unit Delay1'
+ *  UnitDelay: '<S7>/Unit Delay2'
+ *  UnitDelay: '<S7>/Unit Delay3'
+ */
+    rtb_t_save = (simcape_real_time_V2_B.Px - simcape_real_time_V2_DW.UnitDelay1_DSTATE) / 0.002;
+    AB = (simcape_real_time_V2_B.Py - simcape_real_time_V2_DW.UnitDelay2_DSTATE) / 0.002;
+    rtb_y_a_save = (simcape_real_time_V2_B.Pz - simcape_real_time_V2_DW.UnitDelay3_DSTATE) / 0.002;
+    simcape_real_time_V2_B.v_tt = (rtb_t_save * rtb_t_save + AB * AB) + rtb_y_a_save * rtb_y_a_save;
+    simcape_real_time_V2_B.v_tt = sqrt(simcape_real_time_V2_B.v_tt);
+    /* {S!d134}MATLAB Function: '<S7>/MATLAB Function1' incorporates:
+ *  UnitDelay: '<S7>/Unit Delay4'
+ */
+    rtb_t_save = (simcape_real_time_V2_B.v_tt - simcape_real_time_V2_DW.UnitDelay4_DSTATE) / 0.002;
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B4)
+    /* {S!d136}Scope: '<S7>/Scope5' */
+%<tlcOutputsFcnOfS19B4>\
+%endif
+    /* {S!d138}RelationalOperator: '<S31>/Compare' incorporates:
+ *  Constant: '<S31>/Constant'
+ *  MATLAB Function: '<S7>/MATLAB Function13'
+ */
+    rtb_Compare = (tf == simcape_real_time_V2_P.CompareToConstant_const_d);
+    /* {S!d105}Outputs for Triggered SubSystem: '<S7>/Subsystem' incorporates:
+ *  TriggerPort: '<S35>/Trigger'
+ */
+    if (%<(RTMGetIsModeUpdateTimeStep())>) {
+        if (rtb_Compare && (simcape_real_time_V2_PrevZCX.Subsystem_Trig_ZCE != POS_ZCSIG)) {
+            /* {S!d140}DataStoreWrite: '<S35>/Data Store Write' incorporates:
+ *  Constant: '<S35>/Constant'
+ *  DataStoreRead: '<S35>/Data Store Read'
+ *  Sum: '<S35>/Add'
+ */
+            simcape_real_time_V2_DW.N_wp += simcape_real_time_V2_P.Constant_Value;
+        }
+        simcape_real_time_V2_PrevZCX.Subsystem_Trig_ZCE = rtb_Compare;
+    }
+    /* {E!d105}End of Outputs for SubSystem: '<S7>/Subsystem' */
+}
+/* {S!d142}Integrator: '<Root>/Integrator1' */
+simcape_real_time_V2_B.Integrator1 = simcape_real_time_V2_X.Integrator1_CSTATE;
+/* {S!d144}Integrator: '<Root>/Integrator3' */
+simcape_real_time_V2_B.Integrator3 = simcape_real_time_V2_X.Integrator3_CSTATE;
+/* {S!d146}Integrator: '<Root>/Integrator5' */
+simcape_real_time_V2_B.Integrator5 = simcape_real_time_V2_X.Integrator5_CSTATE;
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B7)
+    /* {S!d148}Scope: '<Root>/Scope' */
+%<tlcOutputsFcnOfS19B7>\
+%endif
+}
+/* {S!d150}Integrator: '<Root>/Integrator' */
+simcape_real_time_V2_B.Integrator = simcape_real_time_V2_X.Integrator_CSTATE;
+/* {S!d152}Integrator: '<Root>/Integrator2' */
+simcape_real_time_V2_B.Integrator2 = simcape_real_time_V2_X.Integrator2_CSTATE;
+/* {S!d154}Integrator: '<Root>/Integrator4' */
+simcape_real_time_V2_B.Integrator4 = simcape_real_time_V2_X.Integrator4_CSTATE;
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B8)
+    /* {S!d156}Scope: '<Root>/Scope1' */
+%<tlcOutputsFcnOfS19B8>\
+%endif
+}
+/* {S!d158}Integrator: '<Root>/Integrator7' */
+simcape_real_time_V2_B.Integrator7 = simcape_real_time_V2_X.Integrator7_CSTATE;
+/* {S!d160}Sum: '<S51>/Sum' incorporates:
+ *  Constant: '<S51>/Constant35'
+ */
+simcape_real_time_V2_B.Sum = simcape_real_time_V2_P.Constant35_Value + simcape_real_time_V2_B.Integrator7;
+/* {S!d162}Integrator: '<Root>/Integrator9' */
+simcape_real_time_V2_B.Integrator9 = simcape_real_time_V2_X.Integrator9_CSTATE;
+/* {S!d164}Sum: '<S51>/Sum11' incorporates:
+ *  Constant: '<S51>/Constant36'
+ */
+simcape_real_time_V2_B.Sum11 = simcape_real_time_V2_P.Constant36_Value + simcape_real_time_V2_B.Integrator9;
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !SLibCGSysFcnIsEmptyForTid(CompiledModel.System[9], "Output",0)
+    /* {S!d166}MATLAB Function: '<S10>/MATLAB Function10' incorporates:
+ *  Constant: '<Root>/Constant31'
+ *  Constant: '<Root>/Constant42'
+ *  Constant: '<S10>/Constant40'
+ */
+%if SLibCG_SystemFcnArgAccessed("simcape_real_t_MATLABFunction10",9,0)
+%assign _modelSS = RTMGetModelSSFromIR()
+%endif
+
+%<SLibCGIRGenReusableSysCall("simcape_real_t_MATLABFunction10", ["%<_modelSS>", "simcape_real_time_V2_P.Constant40_Value", "simcape_real_time_V2_P.Constant31_Value", "simcape_real_time_V2_P.Constant42_Value", "&simcape_real_time_V2_B.sf_MATLABFunction10_d", "&simcape_real_time_V2_DW.sf_MATLABFunction10_d"], 9, 1, 6, 0, 6, 19)>\
+%assign ss = ::CompiledModel.System[9]
+%if !LibSystemIsInlined(ss)
+;
+%else
+\
+%endif
+
+%endif
+    /* {S!d168}MATLAB Function: '<S51>/MATLAB Function7' incorporates:
+ *  Constant: '<S51>/Constant32'
+ *  Constant: '<S51>/Constant33'
+ */
+    tf = simcape_real_time_V2_B.sf_MATLABFunction10_d.V - simcape_real_time_V2_B.Integrator4;
+    rtb_y_a_save = (simcape_real_time_V2_B.sf_MATLABFunction10_d.X - simcape_real_time_V2_B.Integrator5) * simcape_real_time_V2_P.Constant32_Value + tf;
+    if (rtIsNaN(rtb_y_a_save)) {
+        rtb_t_save = %<LibGetMathConstant(LibRealNonFinite("nan"), FcnGetDataTypeIdFromName("double"))>;
+    } else if (rtb_y_a_save < 0.0) {
+        rtb_t_save = -1.0;
+    } else {
+        rtb_t_save = (rtb_y_a_save > 0.0);
+    }
+    simcape_real_time_V2_B.U1 = (((simcape_real_time_V2_P.Constant33_Value * rtb_t_save + simcape_real_time_V2_B.sf_MATLABFunction10_d.A) + 9.81) + tf * simcape_real_time_V2_P.Constant32_Value) * (1.7 / (cos(simcape_real_time_V2_B.Sum) * cos(simcape_real_time_V2_B.Sum11)));
+    /* {E!d168}End of MATLAB Function: '<S51>/MATLAB Function7' */
+%if !SLibCGSysFcnIsEmptyForTid(CompiledModel.System[9], "Output",0)
+
+    /* {S!d170}MATLAB Function: '<S8>/MATLAB Function10' incorporates:
+ *  Constant: '<Root>/Constant36'
+ *  Constant: '<Root>/Constant6'
+ *  Constant: '<S8>/Constant40'
+ */
+%if SLibCG_SystemFcnArgAccessed("simcape_real_t_MATLABFunction10",9,0)
+%assign _modelSS = RTMGetModelSSFromIR()
+%endif
+
+%<SLibCGIRGenReusableSysCall("simcape_real_t_MATLABFunction10", ["%<_modelSS>", "simcape_real_time_V2_P.Constant40_Value_o", "simcape_real_time_V2_P.Constant36_Value_p", "simcape_real_time_V2_P.Constant6_Value", "&simcape_real_time_V2_B.sf_MATLABFunction10", "&simcape_real_time_V2_DW.sf_MATLABFunction10"], 9, 0, 6, 0, 6, 19)>\
+%assign ss = ::CompiledModel.System[9]
+%if !LibSystemIsInlined(ss)
+;
+%else
+\
+%endif
+%endif
+}
+/* {S!d172}MATLAB Function: '<S52>/MATLAB Function9' incorporates:
+ *  Constant: '<S52>/Constant49'
+ *  Constant: '<S52>/Constant52'
+ *  Sum: '<Root>/Sum12'
+ */
+F_roll2dot = simcape_real_time_V2_B.sf_MATLABFunction10.V - simcape_real_time_V2_B.Integrator;
+F_pitch2dot = simcape_real_time_V2_B.sf_MATLABFunction10.X - simcape_real_time_V2_B.Integrator1;
+tf = F_pitch2dot * simcape_real_time_V2_P.Constant49_Value + F_roll2dot;
+if (rtIsNaN(tf)) {
+    rtb_t_save = %<LibGetMathConstant(LibRealNonFinite("nan"), FcnGetDataTypeIdFromName("double"))>;
+} else if (tf < 0.0) {
+    rtb_t_save = -1.0;
+} else {
+    rtb_t_save = (tf > 0.0);
+}
+simcape_real_time_V2_B.Ux = ((F_roll2dot * simcape_real_time_V2_P.Constant49_Value + simcape_real_time_V2_B.sf_MATLABFunction10.A) + simcape_real_time_V2_P.Constant52_Value * rtb_t_save * fabs(tf)) * (1.7 / simcape_real_time_V2_B.U1);
+/* {E!d172}End of MATLAB Function: '<S52>/MATLAB Function9' */
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+    /* {S!d174}MATLAB Function: '<S9>/MATLAB Function10' incorporates:
+ *  Constant: '<Root>/Constant29'
+ *  Constant: '<Root>/Constant9'
+ *  Constant: '<S9>/Constant40'
+ */
+    tf = simcape_real_time_V2_P.Constant29_Value / simcape_real_time_V2_P.Constant9_Value;
+    FP_Friction = tf * tf * 0.0;
+    rtb_t_save = -(((((20.0 * simcape_real_time_V2_P.Constant40_Value_a - 20.0 * simcape_real_time_V2_P.Constant29_Value) + 0.0 * tf) + 0.0 * tf) + FP_Friction) - FP_Friction) / (2.0 * %<(SLibCGCallSubFcn("rt_powd_snf", ["tf", "3.0"], 2, 3, 0))>);
+    AB = (((((30.0 * simcape_real_time_V2_P.Constant40_Value_a - 30.0 * simcape_real_time_V2_P.Constant29_Value) + 0.0 * tf) + 0.0 * tf) + FP_Friction) - FP_Friction) / (2.0 * %<(SLibCGCallSubFcn("rt_powd_snf", ["tf", "4.0"], 2, 3, 1))>);
+    rtb_y_a_save = -(((((12.0 * simcape_real_time_V2_P.Constant40_Value_a - 12.0 * simcape_real_time_V2_P.Constant29_Value) + 0.0 * tf) + 0.0 * tf) + FP_Friction) - FP_Friction) / (2.0 * %<(SLibCGCallSubFcn("rt_powd_snf", ["tf", "5.0"], 2, 3, 2))>);
+    simcape_real_time_V2_DW.t_g += 0.002;
+    if (simcape_real_time_V2_DW.t_g > tf) {
+        simcape_real_time_V2_DW.t_g = tf;
+    }
+    tf = %<(SLibCGCallSubFcn("rt_powd_snf", ["simcape_real_time_V2_DW.t_g", "3.0"], 2, 3, 4))>;
+    rtb_z_a_save = %<(SLibCGCallSubFcn("rt_powd_snf", ["simcape_real_time_V2_DW.t_g", "4.0"], 2, 3, 5))>;
+    F_roll2dot = simcape_real_time_V2_DW.t_g * simcape_real_time_V2_DW.t_g;
+    simcape_real_time_V2_B.X = ((((0.0 * simcape_real_time_V2_DW.t_g + simcape_real_time_V2_P.Constant40_Value_a) + F_roll2dot * 0.0) + rtb_t_save * tf) + AB * rtb_z_a_save) + rtb_y_a_save * %<(SLibCGCallSubFcn("rt_powd_snf", ["simcape_real_time_V2_DW.t_g", "5.0"], 2, 3, 3))>;
+    simcape_real_time_V2_B.V = ((3.0 * rtb_t_save * F_roll2dot + 0.0 * simcape_real_time_V2_DW.t_g) + 4.0 * AB * tf) + 5.0 * rtb_y_a_save * rtb_z_a_save;
+    simcape_real_time_V2_B.A = (6.0 * rtb_t_save * simcape_real_time_V2_DW.t_g + 12.0 * AB * F_roll2dot) + 20.0 * rtb_y_a_save * tf;
+    if (simcape_real_time_V2_P.Constant29_Value == 0.0) {
+        simcape_real_time_V2_B.X = 0.0;
+        simcape_real_time_V2_B.V = 0.0;
+        simcape_real_time_V2_B.A = 0.0;
+    }
+    /* {E!d174}End of MATLAB Function: '<S9>/MATLAB Function10' */
+}
+/* {S!d176}MATLAB Function: '<S52>/MATLAB Function7' incorporates:
+ *  Constant: '<S52>/Constant33'
+ *  Constant: '<S52>/Constant35'
+ */
+F_roll2dot = simcape_real_time_V2_B.V - simcape_real_time_V2_B.Integrator2;
+tf = (simcape_real_time_V2_B.X - simcape_real_time_V2_B.Integrator3) * simcape_real_time_V2_P.Constant33_Value_o + F_roll2dot;
+if (rtIsNaN(tf)) {
+    rtb_t_save = %<LibGetMathConstant(LibRealNonFinite("nan"), FcnGetDataTypeIdFromName("double"))>;
+} else if (tf < 0.0) {
+    rtb_t_save = -1.0;
+} else {
+    rtb_t_save = (tf > 0.0);
+}
+simcape_real_time_V2_B.Uy = ((F_roll2dot * simcape_real_time_V2_P.Constant33_Value_o + simcape_real_time_V2_B.A) + simcape_real_time_V2_P.Constant35_Value_h * rtb_t_save * fabs(tf)) * (1.7 / simcape_real_time_V2_B.U1);
+/* {E!d176}End of MATLAB Function: '<S52>/MATLAB Function7' */
+
+/* {S!d178}Integrator: '<Root>/Integrator11' */
+simcape_real_time_V2_B.Integrator11 = simcape_real_time_V2_X.Integrator11_CSTATE;
+/* {S!d180}MATLAB Function: '<S53>/MATLAB Function8' incorporates:
+ *  MATLAB Function: '<Root>/MATLAB Function'
+ *  MATLAB Function: '<S53>/MATLAB Function1'
+ */
+rtb_y_a_save = cos(simcape_real_time_V2_B.Integrator11);
+rtb_z_a_save = sin(simcape_real_time_V2_B.Integrator11);
+tf = rtb_z_a_save * simcape_real_time_V2_B.Ux - rtb_y_a_save * simcape_real_time_V2_B.Uy;
+/* {S!d182}Trigonometry: '<S53>/Asin' */
+if (tf > 1.0) {
+    tf = 1.0;
+} else if (tf < -1.0) {
+    tf = -1.0;
+}
+/* {S!d184}Trigonometry: '<S53>/Asin' */
+simcape_real_time_V2_B.Asin = asin(tf);
+/* {S!d186}MATLAB Function: '<S53>/MATLAB Function1' */
+tf = (rtb_y_a_save * simcape_real_time_V2_B.Ux + rtb_z_a_save * simcape_real_time_V2_B.Uy) / cos(simcape_real_time_V2_B.Asin);
+/* {S!d188}Trigonometry: '<S53>/Asin1' */
+if (tf > 1.0) {
+    tf = 1.0;
+} else if (tf < -1.0) {
+    tf = -1.0;
+}
+/* {S!d190}Trigonometry: '<S53>/Asin1' */
+simcape_real_time_V2_B.Asin1 = asin(tf);
+/* {S!d192}Integrator: '<Root>/Integrator6' */
+simcape_real_time_V2_B.Integrator6 = simcape_real_time_V2_X.Integrator6_CSTATE;
+/* {S!d194}Integrator: '<Root>/Integrator8' */
+simcape_real_time_V2_B.Integrator8 = simcape_real_time_V2_X.Integrator8_CSTATE;
+/* {S!d196}Integrator: '<Root>/Integrator10' */
+simcape_real_time_V2_B.Integrator10 = simcape_real_time_V2_X.Integrator10_CSTATE;
+/* {S!d198}SignalConversion generated from: '<Root>/Gain7' incorporates:
+ *  Constant: '<Root>/Constant2'
+ *  Constant: '<Root>/Constant23'
+ *  Constant: '<Root>/Constant25'
+ *  Constant: '<Root>/Constant26'
+ *  Constant: '<Root>/Constant27'
+ *  Constant: '<Root>/Constant3'
+ *  Sum: '<Root>/Sum'
+ *  Sum: '<Root>/Sum1'
+ *  Sum: '<Root>/Sum10'
+ *  Sum: '<Root>/Sum11'
+ *  Sum: '<Root>/Sum2'
+ *  Sum: '<Root>/Sum3'
+ *  Sum: '<Root>/Sum4'
+ *  Sum: '<Root>/Sum9'
+ */
+tmp_5[0] = (simcape_real_time_V2_P.Constant27_Value + simcape_real_time_V2_B.Asin) - simcape_real_time_V2_B.Integrator7;
+tmp_5[1] = (simcape_real_time_V2_P.Constant2_Value + simcape_real_time_V2_B.Asin1) - simcape_real_time_V2_B.Integrator9;
+tmp_5[2] = simcape_real_time_V2_P.Constant3_Value - simcape_real_time_V2_B.Integrator11;
+tmp_5[3] = simcape_real_time_V2_P.Constant23_Value - simcape_real_time_V2_B.Integrator6;
+tmp_5[4] = simcape_real_time_V2_P.Constant25_Value - simcape_real_time_V2_B.Integrator8;
+tmp_5[5] = simcape_real_time_V2_P.Constant26_Value - simcape_real_time_V2_B.Integrator10;
+for (temp = 0; temp < 4; temp++) {
+    /* {S!d200}Gain: '<Root>/Gain7' */
+    simcape_real_time_V2_B.Gain7[temp] = 0.0;
+    for (i = 0; i < 6; i++) {
+        simcape_real_time_V2_B.Gain7[temp] += simcape_real_time_V2_P.K_LQR_GOC[(i << 2) + temp] * tmp_5[i];
+    }
+    /* {E!d200}End of Gain: '<Root>/Gain7' */
+}
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B40)
+    /* {S!d202}Scope: '<Root>/Scope10' */
+%<tlcOutputsFcnOfS19B40>\
+%endif
+}
+/* {S!d204}Sum: '<Root>/Add' */
+tf = simcape_real_time_V2_B.U1 + simcape_real_time_V2_B.Gain7[0];
+/* {S!d212}Saturate: '<Root>/Giới hạn công suất U2' */
+if (tf > simcape_real_time_V2_P.GiihncngsutU2_UpperSat) {
+    /* {S!d206}Saturate: '<Root>/Giới hạn công suất U2' */
+    simcape_real_time_V2_B.GiihncngsutU2 = simcape_real_time_V2_P.GiihncngsutU2_UpperSat;
+} else if (tf < simcape_real_time_V2_P.GiihncngsutU2_LowerSat) {
+    /* {S!d208}Saturate: '<Root>/Giới hạn công suất U2' */
+    simcape_real_time_V2_B.GiihncngsutU2 = simcape_real_time_V2_P.GiihncngsutU2_LowerSat;
+} else {
+    /* {S!d210}Saturate: '<Root>/Giới hạn công suất U2' */
+    simcape_real_time_V2_B.GiihncngsutU2 = tf;
+}
+/* {E!d212}End of Saturate: '<Root>/Giới hạn công suất U2' */
+
+/* {S!d214}Saturate: '<Root>/Saturation1' */
+if (simcape_real_time_V2_B.Gain7[1] > simcape_real_time_V2_P.Saturation1_UpperSat) {
+    rtb_t_save = simcape_real_time_V2_P.Saturation1_UpperSat;
+} else if (simcape_real_time_V2_B.Gain7[1] < simcape_real_time_V2_P.Saturation1_LowerSat) {
+    rtb_t_save = simcape_real_time_V2_P.Saturation1_LowerSat;
+} else {
+    rtb_t_save = simcape_real_time_V2_B.Gain7[1];
+}
+/* {S!d216}Gain: '<Root>/Gain20' incorporates:
+ *  Saturate: '<Root>/Saturation1'
+ */
+simcape_real_time_V2_B.Gain20 = simcape_real_time_V2_P.Gain20_Gain * rtb_t_save;
+/* {S!d218}Saturate: '<Root>/Saturation8' */
+if (simcape_real_time_V2_B.Gain7[2] > simcape_real_time_V2_P.Saturation8_UpperSat) {
+    rtb_t_save = simcape_real_time_V2_P.Saturation8_UpperSat;
+} else if (simcape_real_time_V2_B.Gain7[2] < simcape_real_time_V2_P.Saturation8_LowerSat) {
+    rtb_t_save = simcape_real_time_V2_P.Saturation8_LowerSat;
+} else {
+    rtb_t_save = simcape_real_time_V2_B.Gain7[2];
+}
+/* {S!d220}Gain: '<Root>/Gain24' incorporates:
+ *  Saturate: '<Root>/Saturation8'
+ */
+simcape_real_time_V2_B.Gain24 = simcape_real_time_V2_P.Gain24_Gain * rtb_t_save;
+/* {S!d222}Saturate: '<Root>/Saturation10' */
+if (simcape_real_time_V2_B.Gain7[3] > simcape_real_time_V2_P.Saturation10_UpperSat) {
+    rtb_t_save = simcape_real_time_V2_P.Saturation10_UpperSat;
+} else if (simcape_real_time_V2_B.Gain7[3] < simcape_real_time_V2_P.Saturation10_LowerSat) {
+    rtb_t_save = simcape_real_time_V2_P.Saturation10_LowerSat;
+} else {
+    rtb_t_save = simcape_real_time_V2_B.Gain7[3];
+}
+/* {S!d224}Gain: '<Root>/Gain26' incorporates:
+ *  Saturate: '<Root>/Saturation10'
+ */
+simcape_real_time_V2_B.Gain26 = simcape_real_time_V2_P.Gain26_Gain * rtb_t_save;
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B41)
+    /* {S!d226}Scope: '<Root>/Scope11' */
+%<tlcOutputsFcnOfS19B41>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B42)
+    /* {S!d228}Scope: '<Root>/Scope14' */
+%<tlcOutputsFcnOfS19B42>\
+%endif
+}
+/* {S!d230}Gain: '<Root>/Gain28' */
+simcape_real_time_V2_B.Gain28 = simcape_real_time_V2_P.Gain28_Gain * simcape_real_time_V2_B.Integrator7;
+/* {S!d232}Gain: '<Root>/Gain29' */
+simcape_real_time_V2_B.Gain29 = simcape_real_time_V2_P.Gain29_Gain * simcape_real_time_V2_B.Integrator9;
+/* {S!d234}Gain: '<Root>/Gain30' */
+simcape_real_time_V2_B.Gain30 = simcape_real_time_V2_P.Gain30_Gain * simcape_real_time_V2_B.Integrator11;
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B43)
+    /* {S!d236}Scope: '<Root>/Scope15' */
+%<tlcOutputsFcnOfS19B43>\
+%endif
+}
+/* {S!d238}Sum: '<Root>/Sum12' */
+simcape_real_time_V2_B.Sum12 = F_pitch2dot;
+/* {S!d240}Sum: '<Root>/Sum19' */
+simcape_real_time_V2_B.Sum19 = simcape_real_time_V2_B.X - simcape_real_time_V2_B.Integrator3;
+/* {S!d242}Sum: '<Root>/Sum20' */
+simcape_real_time_V2_B.Sum20 = simcape_real_time_V2_B.sf_MATLABFunction10_d.X - simcape_real_time_V2_B.Integrator5;
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B44)
+    /* {S!d244}Scope: '<Root>/Scope16' */
+%<tlcOutputsFcnOfS19B44>\
+%endif
+}
+/* {S!d246}Gain: '<Root>/Gain4' */
+simcape_real_time_V2_B.Gain4 = simcape_real_time_V2_P.Gain4_Gain * simcape_real_time_V2_B.Integrator7;
+/* {S!d248}Gain: '<Root>/Gain5' */
+simcape_real_time_V2_B.Gain5 = simcape_real_time_V2_P.Gain5_Gain * simcape_real_time_V2_B.Integrator9;
+/* {S!d250}Gain: '<Root>/Gain6' */
+simcape_real_time_V2_B.Gain6 = simcape_real_time_V2_P.Gain6_Gain * simcape_real_time_V2_B.Integrator11;
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B45)
+    /* {S!d252}Scope: '<Root>/Scope2' */
+%<tlcOutputsFcnOfS19B45>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B46)
+    /* {S!d254}Scope: '<Root>/Scope3' */
+%<tlcOutputsFcnOfS19B46>\
+%endif
+}
+/* {S!d256}Sum: '<Root>/Add1' incorporates:
+ *  Gain: '<Root>/Gain14'
+ *  Gain: '<Root>/Gain15'
+ *  Gain: '<Root>/Gain8'
+ */
+tf = (simcape_real_time_V2_P.Gain8_Gain * simcape_real_time_V2_B.GiihncngsutU2 + simcape_real_time_V2_P.Gain14_Gain * simcape_real_time_V2_B.Gain26) - simcape_real_time_V2_P.Gain15_Gain * simcape_real_time_V2_B.Gain24;
+/* {S!d258}Saturate: '<Root>/Saturation2' */
+if (tf > simcape_real_time_V2_P.Saturation2_UpperSat) {
+    tf = simcape_real_time_V2_P.Saturation2_UpperSat;
+} else if (tf < simcape_real_time_V2_P.Saturation2_LowerSat) {
+    tf = simcape_real_time_V2_P.Saturation2_LowerSat;
+}
+/* {S!d260}MATLAB Function: '<Root>/MATLAB Function1' incorporates:
+ *  MATLAB Function: '<Root>/MATLAB Function2'
+ *  Saturate: '<Root>/Saturation2'
+ */
+simcape_real_time_V2_B.T1 = ((tf / 11.5 * 1000.0 + 1000.0) - 1000.0) / 1000.0 * 11.5;
+/* {S!d262}Sum: '<Root>/Add3' incorporates:
+ *  Gain: '<Root>/Gain11'
+ *  Gain: '<Root>/Gain13'
+ *  Gain: '<Root>/Gain9'
+ */
+tf = (simcape_real_time_V2_P.Gain9_Gain * simcape_real_time_V2_B.GiihncngsutU2 - simcape_real_time_V2_P.Gain11_Gain * simcape_real_time_V2_B.Gain26) + simcape_real_time_V2_P.Gain13_Gain * simcape_real_time_V2_B.Gain20;
+/* {S!d264}Saturate: '<Root>/Saturation3' */
+if (tf > simcape_real_time_V2_P.Saturation3_UpperSat) {
+    tf = simcape_real_time_V2_P.Saturation3_UpperSat;
+} else if (tf < simcape_real_time_V2_P.Saturation3_LowerSat) {
+    tf = simcape_real_time_V2_P.Saturation3_LowerSat;
+}
+/* {S!d266}MATLAB Function: '<Root>/MATLAB Function1' incorporates:
+ *  MATLAB Function: '<Root>/MATLAB Function2'
+ *  Saturate: '<Root>/Saturation3'
+ */
+simcape_real_time_V2_B.T2 = ((tf / 11.5 * 1000.0 + 1000.0) - 1000.0) / 1000.0 * 11.5;
+/* {S!d268}Sum: '<Root>/Add4' incorporates:
+ *  Gain: '<Root>/Gain10'
+ *  Gain: '<Root>/Gain16'
+ *  Gain: '<Root>/Gain17'
+ */
+tf = (simcape_real_time_V2_P.Gain10_Gain * simcape_real_time_V2_B.GiihncngsutU2 + simcape_real_time_V2_P.Gain16_Gain * simcape_real_time_V2_B.Gain26) + simcape_real_time_V2_P.Gain17_Gain * simcape_real_time_V2_B.Gain24;
+/* {S!d270}Saturate: '<Root>/Saturation4' */
+if (tf > simcape_real_time_V2_P.Saturation4_UpperSat) {
+    tf = simcape_real_time_V2_P.Saturation4_UpperSat;
+} else if (tf < simcape_real_time_V2_P.Saturation4_LowerSat) {
+    tf = simcape_real_time_V2_P.Saturation4_LowerSat;
+}
+/* {S!d272}MATLAB Function: '<Root>/MATLAB Function1' incorporates:
+ *  MATLAB Function: '<Root>/MATLAB Function2'
+ *  Saturate: '<Root>/Saturation4'
+ */
+simcape_real_time_V2_B.T3 = ((tf / 11.5 * 1000.0 + 1000.0) - 1000.0) / 1000.0 * 11.5;
+/* {S!d274}Sum: '<Root>/Add5' incorporates:
+ *  Gain: '<Root>/Gain12'
+ *  Gain: '<Root>/Gain18'
+ *  Gain: '<Root>/Gain19'
+ */
+tf = (simcape_real_time_V2_P.Gain12_Gain * simcape_real_time_V2_B.GiihncngsutU2 - simcape_real_time_V2_P.Gain18_Gain * simcape_real_time_V2_B.Gain26) - simcape_real_time_V2_P.Gain19_Gain * simcape_real_time_V2_B.Gain20;
+/* {S!d276}Saturate: '<Root>/Saturation5' */
+if (tf > simcape_real_time_V2_P.Saturation5_UpperSat) {
+    tf = simcape_real_time_V2_P.Saturation5_UpperSat;
+} else if (tf < simcape_real_time_V2_P.Saturation5_LowerSat) {
+    tf = simcape_real_time_V2_P.Saturation5_LowerSat;
+}
+/* {S!d278}MATLAB Function: '<Root>/MATLAB Function1' incorporates:
+ *  MATLAB Function: '<Root>/MATLAB Function2'
+ *  Saturate: '<Root>/Saturation5'
+ */
+simcape_real_time_V2_B.T4 = ((tf / 11.5 * 1000.0 + 1000.0) - 1000.0) / 1000.0 * 11.5;
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B49)
+    /* {S!d280}Scope: '<Root>/Scope6' */
+%<tlcOutputsFcnOfS19B49>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B53)
+    /* {S!d282}Scope: '<Root>/State' */
+%<tlcOutputsFcnOfS19B53>\
+%endif
+}
+/* {S!d284}MATLAB Function: '<Root>/MATLAB Function' incorporates:
+ *  Constant: '<Root>/HS_MSKK'
+ */
+rtb_t_save = ((simcape_real_time_V2_B.T1 + simcape_real_time_V2_B.T2) + simcape_real_time_V2_B.T3) + simcape_real_time_V2_B.T4;
+F_pitch2dot = sin(simcape_real_time_V2_B.Integrator7);
+AB = cos(simcape_real_time_V2_B.Integrator7);
+FP_Friction = sin(simcape_real_time_V2_B.Integrator9);
+tf = (AB * rtb_y_a_save * FP_Friction + F_pitch2dot * rtb_z_a_save) * rtb_t_save / 1.7;
+rtb_z_a_save = -((rtb_y_a_save * F_pitch2dot - AB * FP_Friction * rtb_z_a_save) * rtb_t_save) / 1.7;
+F_roll2dot = rtb_t_save * cos(simcape_real_time_V2_B.Integrator9) * AB / 1.7 - 9.81;
+F_pitch2dot = (0.0030842 * simcape_real_time_V2_B.Integrator8 * simcape_real_time_V2_B.Integrator10 - 0.0032315 * simcape_real_time_V2_B.Integrator8 * simcape_real_time_V2_B.Integrator10) / 0.0030842 + (simcape_real_time_V2_B.T2 - simcape_real_time_V2_B.T4) * 0.25 / 0.0030842;
+AB = (-0.0030842 * simcape_real_time_V2_B.Integrator6 * simcape_real_time_V2_B.Integrator10 + 0.0032315 * simcape_real_time_V2_B.Integrator6 * simcape_real_time_V2_B.Integrator10) / 0.0030842 + (simcape_real_time_V2_B.T3 - simcape_real_time_V2_B.T1) * 0.25 / 0.0030842;
+FP_Friction = 0.0030842 * simcape_real_time_V2_B.Integrator8 * simcape_real_time_V2_B.Integrator6;
+rtb_t_save = (((simcape_real_time_V2_B.T1 - simcape_real_time_V2_B.T2) + simcape_real_time_V2_B.T3) - simcape_real_time_V2_B.T4) / 0.0032315 + (FP_Friction - FP_Friction) / 0.0032315;
+FX_Friction = -simcape_real_time_V2_P.HS_MSKK_Value * simcape_real_time_V2_B.Integrator;
+FY_Friction = -simcape_real_time_V2_P.HS_MSKK_Value * simcape_real_time_V2_B.Integrator2;
+FZ_Friction = -simcape_real_time_V2_P.HS_MSKK_Value * simcape_real_time_V2_B.Integrator4;
+FR_Friction = -simcape_real_time_V2_P.HS_MSKK_Value * simcape_real_time_V2_B.Integrator6;
+FP_Friction = -simcape_real_time_V2_P.HS_MSKK_Value * simcape_real_time_V2_B.Integrator8;
+rtb_y_a_save = -simcape_real_time_V2_P.HS_MSKK_Value * simcape_real_time_V2_B.Integrator10;
+FX_Limit_tmp = simcape_real_time_V2_P.HS_MSKK_Value / 10.0;
+if (FX_Friction > FX_Limit_tmp) {
+    FX_Friction = FX_Limit_tmp;
+}
+if (FX_Friction < -FX_Limit_tmp) {
+    FX_Friction = -FX_Limit_tmp;
+}
+if (FY_Friction > FX_Limit_tmp) {
+    FY_Friction = FX_Limit_tmp;
+}
+if (FY_Friction < -FX_Limit_tmp) {
+    FY_Friction = -FX_Limit_tmp;
+}
+if (FZ_Friction > FX_Limit_tmp) {
+    FZ_Friction = FX_Limit_tmp;
+}
+if (FZ_Friction < -FX_Limit_tmp) {
+    FZ_Friction = -FX_Limit_tmp;
+}
+if (FR_Friction > FX_Limit_tmp) {
+    FR_Friction = FX_Limit_tmp;
+}
+if (FR_Friction < -FX_Limit_tmp) {
+    FR_Friction = -FX_Limit_tmp;
+}
+if (FP_Friction > FX_Limit_tmp) {
+    FP_Friction = FX_Limit_tmp;
+}
+if (FP_Friction < -FX_Limit_tmp) {
+    FP_Friction = -FX_Limit_tmp;
+}
+if (rtb_y_a_save > FX_Limit_tmp) {
+    rtb_y_a_save = FX_Limit_tmp;
+}
+if (rtb_y_a_save < -FX_Limit_tmp) {
+    rtb_y_a_save = -FX_Limit_tmp;
+}
+FX_Friction = 1.7 * tf - FX_Friction;
+if (1.7 * tf * FX_Friction <= 0.0) {
+    FX_Friction = 1.7 * tf;
+}
+tf = 1.7 * rtb_z_a_save - FY_Friction;
+if (1.7 * rtb_z_a_save * tf <= 0.0) {
+    tf = 1.7 * rtb_z_a_save;
+}
+rtb_z_a_save = 1.7 * F_roll2dot - FZ_Friction;
+if (1.7 * F_roll2dot * rtb_z_a_save <= 0.0) {
+    rtb_z_a_save = 1.7 * F_roll2dot;
+}
+F_roll2dot = 1.7 * F_pitch2dot - FR_Friction;
+if (1.7 * F_pitch2dot * F_roll2dot <= 0.0) {
+    F_roll2dot = 1.7 * F_pitch2dot;
+}
+F_pitch2dot = 1.7 * AB - FP_Friction;
+if (1.7 * AB * F_pitch2dot <= 0.0) {
+    F_pitch2dot = 1.7 * AB;
+}
+AB = 1.7 * rtb_t_save - rtb_y_a_save;
+if (1.7 * rtb_t_save * AB <= 0.0) {
+    AB = 1.7 * rtb_t_save;
+}
+simcape_real_time_V2_B.x2dot = FX_Friction / 1.7;
+simcape_real_time_V2_B.y2dot = tf / 1.7;
+simcape_real_time_V2_B.z2dot = rtb_z_a_save / 1.7;
+simcape_real_time_V2_B.roll2dot = F_roll2dot / 1.7;
+simcape_real_time_V2_B.pitch2dot = F_pitch2dot / 1.7;
+simcape_real_time_V2_B.yaw2dot = AB / 1.7;
+if (%<(SLibCGIRIsSampleHit(1, 19))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B58)
+    /* {S!d286}Scope: '<Root>/Scope8' */
+%<tlcOutputsFcnOfS19B58>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B59)
+    /* {S!d288}Scope: '<Root>/Scope4' */
+%<tlcOutputsFcnOfS19B59>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B60)
+    /* {S!d290}Scope: '<Root>/Scope7' */
+%<tlcOutputsFcnOfS19B60>\
+%endif
+    /* {S!d292}MATLAB Function: '<Root>/call1' incorporates:
+ *  DataStoreRead: '<Root>/Data Store Read2'
+ */
+    switch ((int32_T)simcape_real_time_V2_DW.N_wp) {
+      case 1:
+        for (i = 0; i < 4; i++) {
+            b_0[i] = b[i];
+        }
+        simcape_real_time_V2_G00(b_0);
+        break;
+      case 2:
+        for (i = 0; i < 4; i++) {
+            c_0[i] = c[i];
+        }
+        simcape_real_time_V2_G00(c_0);
+        break;
+      case 3:
+        for (i = 0; i < 4; i++) {
+            d_0[i] = d[i];
+        }
+        simcape_real_time_V2_G00(d_0);
+        break;
+      case 4:
+        for (i = 0; i < 4; i++) {
+            e_0[i] = e[i];
+        }
+        simcape_real_time_V2_G00(e_0);
+        break;
+      case 5:
+        for (i = 0; i < 4; i++) {
+            f_0[i] = f[i];
+        }
+        simcape_real_time_V2_G00(f_0);
+        break;
+      case 6:
+        for (i = 0; i < 4; i++) {
+            g_0[i] = g[i];
+        }
+        simcape_real_time_V2_G00(g_0);
+        break;
+    }
+    /* {E!d292}End of MATLAB Function: '<Root>/call1' */
+
+    /* {S!d294}DataStoreRead: '<Root>/Data Store Read3' */
+    tf = simcape_real_time_V2_DW.Px_pre;
+    /* {S!d296}DataStoreRead: '<Root>/Data Store Read4' */
+    rtb_t_save = simcape_real_time_V2_DW.Py_pre;
+    /* {S!d298}DataStoreRead: '<Root>/Data Store Read8' */
+    AB = simcape_real_time_V2_DW.Pz_pre;
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B69)
+    /* {S!d300}Scope: '<Root>/Scope9' */
+%<tlcOutputsFcnOfS19B69>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B70)
+    /* {S!d302}Scope: '<Root>/Scope13' */
+%<tlcOutputsFcnOfS19B70>\
+%endif
+    /* {S!d304}Gain: '<Root>/Gain1' */
+    simcape_real_time_V2_B.Gain1 = simcape_real_time_V2_P.Gain1_Gain * 0.0;
+    /* {S!d306}Gain: '<Root>/Gain2' */
+    simcape_real_time_V2_B.Gain2 = simcape_real_time_V2_P.Gain2_Gain * 0.0;
+    /* {S!d308}Gain: '<Root>/Gain3' */
+    simcape_real_time_V2_B.Gain3 = simcape_real_time_V2_P.Gain3_Gain * 0.0;
+%if !WHITE_SPACE(tlcOutputsFcnOfS19B74)
+    /* {S!d310}Scope: '<Root>/Scope12' */
+%<tlcOutputsFcnOfS19B74>\
+%endif
+    /* {S!d312}RelationalOperator: '<S27>/Compare' incorporates:
+ *  Constant: '<S27>/Constant'
+ *  DataStoreRead: '<S6>/Data Store Read1'
+ */
+    rtb_Compare = (simcape_real_time_V2_DW.start == simcape_real_time_V2_P.CompareToConstant10_const);
+    /* {S!d107}Outputs for Triggered SubSystem: '<S6>/START' incorporates:
+ *  TriggerPort: '<S28>/Trigger'
+ */
+    if (%<(RTMGetIsModeUpdateTimeStep())>) {
+        if (rtb_Compare && (simcape_real_time_V2_PrevZCX.START_Trig_ZCE != POS_ZCSIG)) {
+            /* {S!d108}Outputs for Enabled SubSystem: '<S28>/Subsystem' incorporates:
+ *  EnablePort: '<S30>/Enable'
+ */
+            /* {S!d316}RelationalOperator: '<S29>/Compare' incorporates:
+ *  Constant: '<S29>/Constant'
+ *  DataStoreRead: '<S28>/Data Store Read'
+ */
+            if (simcape_real_time_V2_DW.N_wp == simcape_real_time_V2_P.CompareToConstant_const) {
+                /* {S!d314}DataStoreWrite: '<S30>/Data Store Write1' incorporates:
+ *  Constant: '<S30>/Constant1'
+ */
+                simcape_real_time_V2_DW.N_wp = simcape_real_time_V2_P.Constant1_Value;
+            }
+            /* {E!d316}End of RelationalOperator: '<S29>/Compare' */
+            /* {E!d108}End of Outputs for SubSystem: '<S28>/Subsystem' */
+        }
+        simcape_real_time_V2_PrevZCX.START_Trig_ZCE = rtb_Compare;
+    }
+    /* {E!d107}End of Outputs for SubSystem: '<S6>/START' */
+}
+/* {S!d318}SimscapeInputBlock: '<S50>/INPUT_5_1_1' */
+if (%<(LibIsMajorTimeStep())>) {
+    simcape_real_time_V2_DW.INPUT_5_1_1_Discrete = simcape_real_time_V2_B.Gain3;
+}
+if (simcape_real_time_V2_DW.INPUT_5_1_1_FirstOutput == 0.0) {
+    simcape_real_time_V2_DW.INPUT_5_1_1_FirstOutput = 1.0;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink_PS[0] = simcape_real_time_V2_DW.INPUT_5_1_1_Discrete;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink_PS[1] = 0.0;
+}
+simcape_real_time_V2_B.INPUT_5_1_1[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink_PS[0];
+simcape_real_time_V2_B.INPUT_5_1_1[1] = simcape_real_time_V2_X.simcape_real_time_V2Simulink_PS[1];
+simcape_real_time_V2_B.INPUT_5_1_1[2] = ((simcape_real_time_V2_DW.INPUT_5_1_1_Discrete - simcape_real_time_V2_X.simcape_real_time_V2Simulink_PS[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink_PS[1]) * 500.0;
+simcape_real_time_V2_B.INPUT_5_1_1[3] = 0.0;
+/* {E!d318}End of SimscapeInputBlock: '<S50>/INPUT_5_1_1' */
+
+/* {S!d320}SimscapeInputBlock: '<S50>/INPUT_10_1_1' */
+if (%<(LibIsMajorTimeStep())>) {
+    simcape_real_time_V2_DW.INPUT_10_1_1_Discrete = simcape_real_time_V2_B.Gain2;
+}
+if (simcape_real_time_V2_DW.INPUT_10_1_1_FirstOutput == 0.0) {
+    simcape_real_time_V2_DW.INPUT_10_1_1_FirstOutput = 1.0;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink__f[0] = simcape_real_time_V2_DW.INPUT_10_1_1_Discrete;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink__f[1] = 0.0;
+}
+simcape_real_time_V2_B.INPUT_10_1_1[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink__f[0];
+simcape_real_time_V2_B.INPUT_10_1_1[1] = simcape_real_time_V2_X.simcape_real_time_V2Simulink__f[1];
+simcape_real_time_V2_B.INPUT_10_1_1[2] = ((simcape_real_time_V2_DW.INPUT_10_1_1_Discrete - simcape_real_time_V2_X.simcape_real_time_V2Simulink__f[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink__f[1]) * 500.0;
+simcape_real_time_V2_B.INPUT_10_1_1[3] = 0.0;
+/* {E!d320}End of SimscapeInputBlock: '<S50>/INPUT_10_1_1' */
+
+/* {S!d322}SimscapeInputBlock: '<S50>/INPUT_9_1_1' */
+if (%<(LibIsMajorTimeStep())>) {
+    simcape_real_time_V2_DW.INPUT_9_1_1_Discrete = simcape_real_time_V2_B.Gain1;
+}
+if (simcape_real_time_V2_DW.INPUT_9_1_1_FirstOutput == 0.0) {
+    simcape_real_time_V2_DW.INPUT_9_1_1_FirstOutput = 1.0;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink__i[0] = simcape_real_time_V2_DW.INPUT_9_1_1_Discrete;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink__i[1] = 0.0;
+}
+simcape_real_time_V2_B.INPUT_9_1_1[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink__i[0];
+simcape_real_time_V2_B.INPUT_9_1_1[1] = simcape_real_time_V2_X.simcape_real_time_V2Simulink__i[1];
+simcape_real_time_V2_B.INPUT_9_1_1[2] = ((simcape_real_time_V2_DW.INPUT_9_1_1_Discrete - simcape_real_time_V2_X.simcape_real_time_V2Simulink__i[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink__i[1]) * 500.0;
+simcape_real_time_V2_B.INPUT_9_1_1[3] = 0.0;
+/* {E!d322}End of SimscapeInputBlock: '<S50>/INPUT_9_1_1' */
+
+/* {S!d324}SimscapeInputBlock: '<S50>/INPUT_6_1_1' */
+if (simcape_real_time_V2_DW.INPUT_6_1_1_FirstOutput == 0.0) {
+    simcape_real_time_V2_DW.INPUT_6_1_1_FirstOutput = 1.0;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink__b[0] = simcape_real_time_V2_B.Integrator7;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink__b[1] = 0.0;
+}
+simcape_real_time_V2_B.INPUT_6_1_1[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink__b[0];
+simcape_real_time_V2_B.INPUT_6_1_1[1] = simcape_real_time_V2_X.simcape_real_time_V2Simulink__b[1];
+simcape_real_time_V2_B.INPUT_6_1_1[2] = ((simcape_real_time_V2_B.Integrator7 - simcape_real_time_V2_X.simcape_real_time_V2Simulink__b[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink__b[1]) * 500.0;
+simcape_real_time_V2_B.INPUT_6_1_1[3] = 0.0;
+/* {E!d324}End of SimscapeInputBlock: '<S50>/INPUT_6_1_1' */
+
+/* {S!d326}SimscapeInputBlock: '<S50>/INPUT_7_1_1' */
+if (simcape_real_time_V2_DW.INPUT_7_1_1_FirstOutput == 0.0) {
+    simcape_real_time_V2_DW.INPUT_7_1_1_FirstOutput = 1.0;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink_it[0] = simcape_real_time_V2_B.Integrator9;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink_it[1] = 0.0;
+}
+simcape_real_time_V2_B.INPUT_7_1_1[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink_it[0];
+simcape_real_time_V2_B.INPUT_7_1_1[1] = simcape_real_time_V2_X.simcape_real_time_V2Simulink_it[1];
+simcape_real_time_V2_B.INPUT_7_1_1[2] = ((simcape_real_time_V2_B.Integrator9 - simcape_real_time_V2_X.simcape_real_time_V2Simulink_it[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink_it[1]) * 500.0;
+simcape_real_time_V2_B.INPUT_7_1_1[3] = 0.0;
+/* {E!d326}End of SimscapeInputBlock: '<S50>/INPUT_7_1_1' */
+
+/* {S!d328}SimscapeInputBlock: '<S50>/INPUT_8_1_1' */
+if (simcape_real_time_V2_DW.INPUT_8_1_1_FirstOutput == 0.0) {
+    simcape_real_time_V2_DW.INPUT_8_1_1_FirstOutput = 1.0;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink_ig[0] = simcape_real_time_V2_B.Integrator11;
+    simcape_real_time_V2_X.simcape_real_time_V2Simulink_ig[1] = 0.0;
+}
+simcape_real_time_V2_B.INPUT_8_1_1[0] = simcape_real_time_V2_X.simcape_real_time_V2Simulink_ig[0];
+simcape_real_time_V2_B.INPUT_8_1_1[1] = simcape_real_time_V2_X.simcape_real_time_V2Simulink_ig[1];
+simcape_real_time_V2_B.INPUT_8_1_1[2] = ((simcape_real_time_V2_B.Integrator11 - simcape_real_time_V2_X.simcape_real_time_V2Simulink_ig[0]) * 500.0 - 2.0 * simcape_real_time_V2_X.simcape_real_time_V2Simulink_ig[1]) * 500.0;
+simcape_real_time_V2_B.INPUT_8_1_1[3] = 0.0;
+/* {E!d328}End of SimscapeInputBlock: '<S50>/INPUT_8_1_1' */
+
+/* {S!d330}SimscapeInputBlock: '<S50>/INPUT_1_1_1' incorporates:
+ *  Constant: '<Root>/Constant1'
+ */
+simcape_real_time_V2_B.INPUT_1_1_1[0] = simcape_real_time_V2_P.Constant1_Value_e;
+simcape_real_time_V2_B.INPUT_1_1_1[1] = 0.0;
+simcape_real_time_V2_B.INPUT_1_1_1[2] = 0.0;
+if (%<(LibIsMajorTimeStep())>) {
+    simcape_real_time_V2_DW.INPUT_1_1_1_Discrete[0] = !(simcape_real_time_V2_B.INPUT_1_1_1[0] == simcape_real_time_V2_DW.INPUT_1_1_1_Discrete[1]);
+    simcape_real_time_V2_DW.INPUT_1_1_1_Discrete[1] = simcape_real_time_V2_B.INPUT_1_1_1[0];
+}
+simcape_real_time_V2_B.INPUT_1_1_1[0] = simcape_real_time_V2_DW.INPUT_1_1_1_Discrete[1];
+simcape_real_time_V2_B.INPUT_1_1_1[3] = simcape_real_time_V2_DW.INPUT_1_1_1_Discrete[0];
+/* {E!d330}End of SimscapeInputBlock: '<S50>/INPUT_1_1_1' */
+
+/* {S!d332}SimscapeInputBlock: '<S50>/INPUT_2_1_1' incorporates:
+ *  Constant: '<Root>/Constant7'
+ */
+simcape_real_time_V2_B.INPUT_2_1_1[0] = simcape_real_time_V2_P.Constant7_Value;
+simcape_real_time_V2_B.INPUT_2_1_1[1] = 0.0;
+simcape_real_time_V2_B.INPUT_2_1_1[2] = 0.0;
+if (%<(LibIsMajorTimeStep())>) {
+    simcape_real_time_V2_DW.INPUT_2_1_1_Discrete[0] = !(simcape_real_time_V2_B.INPUT_2_1_1[0] == simcape_real_time_V2_DW.INPUT_2_1_1_Discrete[1]);
+    simcape_real_time_V2_DW.INPUT_2_1_1_Discrete[1] = simcape_real_time_V2_B.INPUT_2_1_1[0];
+}
+simcape_real_time_V2_B.INPUT_2_1_1[0] = simcape_real_time_V2_DW.INPUT_2_1_1_Discrete[1];
+simcape_real_time_V2_B.INPUT_2_1_1[3] = simcape_real_time_V2_DW.INPUT_2_1_1_Discrete[0];
+/* {E!d332}End of SimscapeInputBlock: '<S50>/INPUT_2_1_1' */
+
+/* {S!d334}SimscapeInputBlock: '<S50>/INPUT_3_1_1' incorporates:
+ *  Constant: '<Root>/Constant37'
+ */
+simcape_real_time_V2_B.INPUT_3_1_1[0] = simcape_real_time_V2_P.Constant37_Value;
+simcape_real_time_V2_B.INPUT_3_1_1[1] = 0.0;
+simcape_real_time_V2_B.INPUT_3_1_1[2] = 0.0;
+if (%<(LibIsMajorTimeStep())>) {
+    simcape_real_time_V2_DW.INPUT_3_1_1_Discrete[0] = !(simcape_real_time_V2_B.INPUT_3_1_1[0] == simcape_real_time_V2_DW.INPUT_3_1_1_Discrete[1]);
+    simcape_real_time_V2_DW.INPUT_3_1_1_Discrete[1] = simcape_real_time_V2_B.INPUT_3_1_1[0];
+}
+simcape_real_time_V2_B.INPUT_3_1_1[0] = simcape_real_time_V2_DW.INPUT_3_1_1_Discrete[1];
+simcape_real_time_V2_B.INPUT_3_1_1[3] = simcape_real_time_V2_DW.INPUT_3_1_1_Discrete[0];
+/* {E!d334}End of SimscapeInputBlock: '<S50>/INPUT_3_1_1' */
+
+/* {S!d336}SimscapeInputBlock: '<S50>/INPUT_4_1_1' incorporates:
+ *  Constant: '<Root>/Constant38'
+ */
+simcape_real_time_V2_B.INPUT_4_1_1[0] = simcape_real_time_V2_P.Constant38_Value;
+simcape_real_time_V2_B.INPUT_4_1_1[1] = 0.0;
+simcape_real_time_V2_B.INPUT_4_1_1[2] = 0.0;
+if (%<(LibIsMajorTimeStep())>) {
+    simcape_real_time_V2_DW.INPUT_4_1_1_Discrete[0] = !(simcape_real_time_V2_B.INPUT_4_1_1[0] == simcape_real_time_V2_DW.INPUT_4_1_1_Discrete[1]);
+    simcape_real_time_V2_DW.INPUT_4_1_1_Discrete[1] = simcape_real_time_V2_B.INPUT_4_1_1[0];
+}
+simcape_real_time_V2_B.INPUT_4_1_1[0] = simcape_real_time_V2_DW.INPUT_4_1_1_Discrete[1];
+simcape_real_time_V2_B.INPUT_4_1_1[3] = simcape_real_time_V2_DW.INPUT_4_1_1_Discrete[0];
+/* {E!d336}End of SimscapeInputBlock: '<S50>/INPUT_4_1_1' */
+
+/* {S!d338}SimscapeExecutionBlock: '<S50>/STATE_1' incorporates:
+ *  SimscapeExecutionBlock: '<S50>/OUTPUT_1_0'
+ */
+simulationData = (NeslSimulationData *)simcape_real_time_V2_DW.STATE_1_SimData;
+tf = %<(SLibCG_SE(LibGetT()))>;
+time = tf;
+simulationData->mData->mTime.mN = 1;
+simulationData->mData->mTime.mX = &time;
+simulationData->mData->mContStates.mN = 8;
+simulationData->mData->mContStates.mX = &simcape_real_time_V2_X.simcape_real_time_V2Revolute_Jo[0];
+simulationData->mData->mDiscStates.mN = 0;
+simulationData->mData->mDiscStates.mX = &simcape_real_time_V2_DW.STATE_1_Discrete;
+simulationData->mData->mModeVector.mN = 0;
+simulationData->mData->mModeVector.mX = &simcape_real_time_V2_DW.STATE_1_Modes;
+rtb_Compare = %<(SLibCG_SE(SLibCGIRGetSolverFoundZcEvents()))>;
+simulationData->mData->mFoundZcEvents = rtb_Compare;
+rtb_Compare = %<(SLibCG_SE(LibIsMajorTimeStep()))>;
+simulationData->mData->mIsMajorTimeStep = rtb_Compare;
+tmp = %<(SLibCG_SE(SLibCGIRGetSolverAssertCheck()))>;
+simulationData->mData->mIsSolverAssertCheck = tmp;
+simulationData->mData->mIsSolverCheckingCIC = false;
+tmp = %<(SLibCG_SE(RTMIsSolverComputingJacobian()))>;
+simulationData->mData->mIsComputingJacobian = tmp;
+simulationData->mData->mIsEvaluatingF0 = false;
+simulationData->mData->mIsSolverRequestingReset = false;
+tmp = %<(SLibCG_SE(RTMGetIsModeUpdateTimeStep()))>;
+simulationData->mData->mIsModeUpdateTimeStep = tmp;
+tmp_1[0] = 0;
+tmp_0[0] = simcape_real_time_V2_B.INPUT_5_1_1[0];
+tmp_0[1] = simcape_real_time_V2_B.INPUT_5_1_1[1];
+tmp_0[2] = simcape_real_time_V2_B.INPUT_5_1_1[2];
+tmp_0[3] = simcape_real_time_V2_B.INPUT_5_1_1[3];
+tmp_1[1] = 4;
+tmp_0[4] = simcape_real_time_V2_B.INPUT_10_1_1[0];
+tmp_0[5] = simcape_real_time_V2_B.INPUT_10_1_1[1];
+tmp_0[6] = simcape_real_time_V2_B.INPUT_10_1_1[2];
+tmp_0[7] = simcape_real_time_V2_B.INPUT_10_1_1[3];
+tmp_1[2] = 8;
+tmp_0[8] = simcape_real_time_V2_B.INPUT_9_1_1[0];
+tmp_0[9] = simcape_real_time_V2_B.INPUT_9_1_1[1];
+tmp_0[10] = simcape_real_time_V2_B.INPUT_9_1_1[2];
+tmp_0[11] = simcape_real_time_V2_B.INPUT_9_1_1[3];
+tmp_1[3] = 12;
+tmp_0[12] = simcape_real_time_V2_B.INPUT_6_1_1[0];
+tmp_0[13] = simcape_real_time_V2_B.INPUT_6_1_1[1];
+tmp_0[14] = simcape_real_time_V2_B.INPUT_6_1_1[2];
+tmp_0[15] = simcape_real_time_V2_B.INPUT_6_1_1[3];
+tmp_1[4] = 16;
+tmp_0[16] = simcape_real_time_V2_B.INPUT_7_1_1[0];
+tmp_0[17] = simcape_real_time_V2_B.INPUT_7_1_1[1];
+tmp_0[18] = simcape_real_time_V2_B.INPUT_7_1_1[2];
+tmp_0[19] = simcape_real_time_V2_B.INPUT_7_1_1[3];
+tmp_1[5] = 20;
+tmp_0[20] = simcape_real_time_V2_B.INPUT_8_1_1[0];
+tmp_0[21] = simcape_real_time_V2_B.INPUT_8_1_1[1];
+tmp_0[22] = simcape_real_time_V2_B.INPUT_8_1_1[2];
+tmp_0[23] = simcape_real_time_V2_B.INPUT_8_1_1[3];
+tmp_1[6] = 24;
+tmp_0[24] = simcape_real_time_V2_B.INPUT_1_1_1[0];
+tmp_0[25] = simcape_real_time_V2_B.INPUT_1_1_1[1];
+tmp_0[26] = simcape_real_time_V2_B.INPUT_1_1_1[2];
+tmp_0[27] = simcape_real_time_V2_B.INPUT_1_1_1[3];
+tmp_1[7] = 28;
+tmp_0[28] = simcape_real_time_V2_B.INPUT_2_1_1[0];
+tmp_0[29] = simcape_real_time_V2_B.INPUT_2_1_1[1];
+tmp_0[30] = simcape_real_time_V2_B.INPUT_2_1_1[2];
+tmp_0[31] = simcape_real_time_V2_B.INPUT_2_1_1[3];
+tmp_1[8] = 32;
+tmp_0[32] = simcape_real_time_V2_B.INPUT_3_1_1[0];
+tmp_0[33] = simcape_real_time_V2_B.INPUT_3_1_1[1];
+tmp_0[34] = simcape_real_time_V2_B.INPUT_3_1_1[2];
+tmp_0[35] = simcape_real_time_V2_B.INPUT_3_1_1[3];
+tmp_1[9] = 36;
+tmp_0[36] = simcape_real_time_V2_B.INPUT_4_1_1[0];
+tmp_0[37] = simcape_real_time_V2_B.INPUT_4_1_1[1];
+tmp_0[38] = simcape_real_time_V2_B.INPUT_4_1_1[2];
+tmp_0[39] = simcape_real_time_V2_B.INPUT_4_1_1[3];
+tmp_1[10] = 40;
+simulationData->mData->mInputValues.mN = 40;
+simulationData->mData->mInputValues.mX = &tmp_0[0];
+simulationData->mData->mInputOffsets.mN = 11;
+simulationData->mData->mInputOffsets.mX = &tmp_1[0];
+simulationData->mData->mOutputs.mN = 8;
+simulationData->mData->mOutputs.mX = &simcape_real_time_V2_B.STATE_1[0];
+simulationData->mData->mTolerances.mN = 0;
+simulationData->mData->mTolerances.mX = NULL;
+simulationData->mData->mCstateHasChanged = false;
+rtb_t_save = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+time_0 = rtb_t_save;
+simulationData->mData->mTime.mN = 1;
+simulationData->mData->mTime.mX = &time_0;
+simulationData->mData->mSampleHits.mN = 0;
+simulationData->mData->mSampleHits.mX = NULL;
+simulationData->mData->mIsFundamentalSampleHit = false;
+diagnosticManager = (NeuDiagnosticManager *)simcape_real_time_V2_DW.STATE_1_DiagMgr;
+diagnosticTree = neu_diagnostic_manager_get_initial_tree(diagnosticManager);
+temp = ne_simulator_method((NeslSimulator *)simcape_real_time_V2_DW.STATE_1_Simulator, NESL_SIM_OUTPUTS, simulationData, diagnosticManager);
+if (temp != 0) {
+    tmp_2 = error_buffer_is_empty(%<(LibGetRTModelErrorStatus())>);
+    if (tmp_2) {
+        char *msg;
+        msg = rtw_diagnostics_msg(diagnosticTree);
+        %<(LibSetRTModelErrorStatus("msg"))>;
+    }
+}
+/* {E!d338}End of SimscapeExecutionBlock: '<S50>/STATE_1' */
+
+/* {S!d340}SimscapeExecutionBlock: '<S50>/OUTPUT_1_0' */
+simulationData = (NeslSimulationData *)simcape_real_time_V2_DW.OUTPUT_1_0_SimData;
+time_1 = tf;
+simulationData->mData->mTime.mN = 1;
+simulationData->mData->mTime.mX = &time_1;
+simulationData->mData->mContStates.mN = 0;
+simulationData->mData->mContStates.mX = NULL;
+simulationData->mData->mDiscStates.mN = 0;
+simulationData->mData->mDiscStates.mX = &simcape_real_time_V2_DW.OUTPUT_1_0_Discrete;
+simulationData->mData->mModeVector.mN = 0;
+simulationData->mData->mModeVector.mX = &simcape_real_time_V2_DW.OUTPUT_1_0_Modes;
+tmp_2 = %<(SLibCG_SE(SLibCGIRGetSolverFoundZcEvents()))>;
+simulationData->mData->mFoundZcEvents = tmp_2;
+simulationData->mData->mIsMajorTimeStep = rtb_Compare;
+rtb_Compare = %<(SLibCG_SE(SLibCGIRGetSolverAssertCheck()))>;
+simulationData->mData->mIsSolverAssertCheck = rtb_Compare;
+simulationData->mData->mIsSolverCheckingCIC = false;
+simulationData->mData->mIsComputingJacobian = false;
+simulationData->mData->mIsEvaluatingF0 = false;
+simulationData->mData->mIsSolverRequestingReset = false;
+simulationData->mData->mIsModeUpdateTimeStep = tmp;
+tmp_4[0] = 0;
+tmp_3[0] = simcape_real_time_V2_B.INPUT_5_1_1[0];
+tmp_3[1] = simcape_real_time_V2_B.INPUT_5_1_1[1];
+tmp_3[2] = simcape_real_time_V2_B.INPUT_5_1_1[2];
+tmp_3[3] = simcape_real_time_V2_B.INPUT_5_1_1[3];
+tmp_4[1] = 4;
+tmp_3[4] = simcape_real_time_V2_B.INPUT_10_1_1[0];
+tmp_3[5] = simcape_real_time_V2_B.INPUT_10_1_1[1];
+tmp_3[6] = simcape_real_time_V2_B.INPUT_10_1_1[2];
+tmp_3[7] = simcape_real_time_V2_B.INPUT_10_1_1[3];
+tmp_4[2] = 8;
+tmp_3[8] = simcape_real_time_V2_B.INPUT_9_1_1[0];
+tmp_3[9] = simcape_real_time_V2_B.INPUT_9_1_1[1];
+tmp_3[10] = simcape_real_time_V2_B.INPUT_9_1_1[2];
+tmp_3[11] = simcape_real_time_V2_B.INPUT_9_1_1[3];
+tmp_4[3] = 12;
+tmp_3[12] = simcape_real_time_V2_B.INPUT_6_1_1[0];
+tmp_3[13] = simcape_real_time_V2_B.INPUT_6_1_1[1];
+tmp_3[14] = simcape_real_time_V2_B.INPUT_6_1_1[2];
+tmp_3[15] = simcape_real_time_V2_B.INPUT_6_1_1[3];
+tmp_4[4] = 16;
+tmp_3[16] = simcape_real_time_V2_B.INPUT_7_1_1[0];
+tmp_3[17] = simcape_real_time_V2_B.INPUT_7_1_1[1];
+tmp_3[18] = simcape_real_time_V2_B.INPUT_7_1_1[2];
+tmp_3[19] = simcape_real_time_V2_B.INPUT_7_1_1[3];
+tmp_4[5] = 20;
+tmp_3[20] = simcape_real_time_V2_B.INPUT_8_1_1[0];
+tmp_3[21] = simcape_real_time_V2_B.INPUT_8_1_1[1];
+tmp_3[22] = simcape_real_time_V2_B.INPUT_8_1_1[2];
+tmp_3[23] = simcape_real_time_V2_B.INPUT_8_1_1[3];
+tmp_4[6] = 24;
+tmp_3[24] = simcape_real_time_V2_B.INPUT_1_1_1[0];
+tmp_3[25] = simcape_real_time_V2_B.INPUT_1_1_1[1];
+tmp_3[26] = simcape_real_time_V2_B.INPUT_1_1_1[2];
+tmp_3[27] = simcape_real_time_V2_B.INPUT_1_1_1[3];
+tmp_4[7] = 28;
+tmp_3[28] = simcape_real_time_V2_B.INPUT_2_1_1[0];
+tmp_3[29] = simcape_real_time_V2_B.INPUT_2_1_1[1];
+tmp_3[30] = simcape_real_time_V2_B.INPUT_2_1_1[2];
+tmp_3[31] = simcape_real_time_V2_B.INPUT_2_1_1[3];
+tmp_4[8] = 32;
+tmp_3[32] = simcape_real_time_V2_B.INPUT_3_1_1[0];
+tmp_3[33] = simcape_real_time_V2_B.INPUT_3_1_1[1];
+tmp_3[34] = simcape_real_time_V2_B.INPUT_3_1_1[2];
+tmp_3[35] = simcape_real_time_V2_B.INPUT_3_1_1[3];
+tmp_4[9] = 36;
+tmp_3[36] = simcape_real_time_V2_B.INPUT_4_1_1[0];
+tmp_3[37] = simcape_real_time_V2_B.INPUT_4_1_1[1];
+tmp_3[38] = simcape_real_time_V2_B.INPUT_4_1_1[2];
+tmp_3[39] = simcape_real_time_V2_B.INPUT_4_1_1[3];
+tmp_4[10] = 40;
+memcpy(&tmp_3[40], &simcape_real_time_V2_B.STATE_1[0], sizeof(real_T) << 3U);
+tmp_4[11] = 48;
+simulationData->mData->mInputValues.mN = 48;
+simulationData->mData->mInputValues.mX = &tmp_3[0];
+simulationData->mData->mInputOffsets.mN = 12;
+simulationData->mData->mInputOffsets.mX = &tmp_4[0];
+simulationData->mData->mOutputs.mN = 4;
+simulationData->mData->mOutputs.mX = &rtb_OUTPUT_1_0[0];
+simulationData->mData->mTolerances.mN = 0;
+simulationData->mData->mTolerances.mX = NULL;
+simulationData->mData->mCstateHasChanged = false;
+time_2 = rtb_t_save;
+simulationData->mData->mTime.mN = 1;
+simulationData->mData->mTime.mX = &time_2;
+simulationData->mData->mSampleHits.mN = 0;
+simulationData->mData->mSampleHits.mX = NULL;
+simulationData->mData->mIsFundamentalSampleHit = false;
+diagnosticManager = (NeuDiagnosticManager *)simcape_real_time_V2_DW.OUTPUT_1_0_DiagMgr;
+diagnosticTree_0 = neu_diagnostic_manager_get_initial_tree(diagnosticManager);
+temp = ne_simulator_method((NeslSimulator *)simcape_real_time_V2_DW.OUTPUT_1_0_Simulator, NESL_SIM_OUTPUTS, simulationData, diagnosticManager);
+if (temp != 0) {
+    rtb_Compare = error_buffer_is_empty(%<(LibGetRTModelErrorStatus())>);
+    if (rtb_Compare) {
+        char *msg_0;
+        msg_0 = rtw_diagnostics_msg(diagnosticTree_0);
+        %<(LibSetRTModelErrorStatus("msg_0"))>;
+    }
+}
+%<SLibInsertSolverResetCode()>\
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(2, 3, fcnProtoType)>
+%endfunction

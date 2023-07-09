@@ -1,0 +1,27 @@
+%implements s20_b0_7htti_Terminate "C"
+
+%function Terminate(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+/* Terminate for SimscapeExecutionBlock: '<S50>/STATE_1' */
+neu_destroy_diagnostic_manager((NeuDiagnosticManager *)simcape_real_time_V2_DW.STATE_1_DiagMgr);
+nesl_destroy_simulation_data((NeslSimulationData *)simcape_real_time_V2_DW.STATE_1_SimData);
+nesl_erase_simulator("simcape_real_time_V2/Solver Configuration_1");
+nesl_destroy_registry();
+/* Terminate for SimscapeExecutionBlock: '<S50>/OUTPUT_1_0' */
+neu_destroy_diagnostic_manager((NeuDiagnosticManager *)simcape_real_time_V2_DW.OUTPUT_1_0_DiagMgr);
+nesl_destroy_simulation_data((NeslSimulationData *)simcape_real_time_V2_DW.OUTPUT_1_0_SimData);
+nesl_erase_simulator("simcape_real_time_V2/Solver Configuration_1");
+nesl_destroy_registry();
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function TerminateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Terminate(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(2, 8, fcnProtoType)>
+%endfunction

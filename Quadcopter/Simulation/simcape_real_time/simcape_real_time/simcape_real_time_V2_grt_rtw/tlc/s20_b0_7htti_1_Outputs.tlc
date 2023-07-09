@@ -1,0 +1,28 @@
+%implements s20_b0_7htti_1_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+/* DataStoreWrite: '<S2>/Data Store Write2' incorporates:
+ *  MATLAB Function: '<S2>/MATLAB Function1'
+ *  SignalConversion generated from: '<S2>/xyzv'
+ */
+simcape_real_time_V2_DW.xyzv[0] = rtu_xyzv[0];
+simcape_real_time_V2_DW.xyzv[1] = rtu_xyzv[1];
+simcape_real_time_V2_DW.xyzv[2] = rtu_xyzv[2];
+simcape_real_time_V2_DW.xyzv[3] = rtu_xyzv[3];
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void simcape_real_time_V2_G00(\
+%assign comma = ""
+%<comma>const real_T rtu_xyzv[4]\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(1, 0, fcnProtoType)>
+%endfunction

@@ -1,0 +1,15 @@
+../Lib/TD_GY86.c:16:9:MPU6050_Init	40	static
+../Lib/TD_GY86.c:63:6:MPU6050_Bypass	40	static
+../Lib/TD_GY86.c:81:6:MPU6050_Master	40	static
+../Lib/TD_GY86.c:99:6:MPU6050_Addslave	40	static
+../Lib/TD_GY86.c:124:6:MPU6050_Read_All	56	static
+../Lib/TD_GY86.c:168:6:HMC5883L_Init	40	static
+../Lib/TD_GY86.c:189:6:MS5611_Rest	40	static
+../Lib/TD_GY86.c:206:9:MS5611_PROM_read	48	static
+../Lib/TD_GY86.c:242:9:MS5611_init	16	static
+../Lib/TD_GY86.c:257:9:MS5611_read_temp	40	static
+../Lib/TD_GY86.c:277:9:MS5611_read_press	40	static
+../Lib/TD_GY86.c:297:9:MS5611_calculate	424	static
+../Lib/TD_GY86.c:362:8:getAltitude	24	static
+../Lib/TD_GY86.c:375:6:MPU2Angle	16	static
+../Lib/TD_GY86.c:390:6:OffsetAngle	24	static

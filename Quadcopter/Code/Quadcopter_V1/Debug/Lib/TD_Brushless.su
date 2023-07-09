@@ -1,0 +1,2 @@
+../Lib/TD_Brushless.c:15:6:setupESC	16	static
+../Lib/TD_Brushless.c:40:6:ESC_Control	24	static

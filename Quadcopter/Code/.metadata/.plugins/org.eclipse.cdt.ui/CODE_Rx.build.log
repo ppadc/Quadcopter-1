@@ -1,0 +1,10 @@
+13:20:48 **** Incremental Build of configuration Debug for project CODE_Rx ****
+make -j20 all 
+arm-none-eabi-size   CODE_Rx.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23100	    176	   1960	  25236	   6294	CODE_Rx.elf
+Finished building: default.size.stdout
+ 
+
+13:20:49 Build Finished. 0 errors, 0 warnings. (took 157ms)
+

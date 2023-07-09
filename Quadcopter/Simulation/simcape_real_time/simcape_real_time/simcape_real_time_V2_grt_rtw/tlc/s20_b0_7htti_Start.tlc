@@ -1,0 +1,236 @@
+%implements s20_b0_7htti_Start "C"
+
+%function Start(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+NeModelParameters modelParameters;
+NeModelParameters modelParameters_0;
+NeslSimulationData *tmp_1;
+NeslSimulator *tmp;
+NeuDiagnosticManager *diagnosticManager;
+NeuDiagnosticTree *diagnosticTree;
+NeuDiagnosticTree *diagnosticTree_0;
+real_T tmp_2;
+int32_T tmp_3;
+boolean_T tmp_0;
+%closefile localVarDecl
+%assign tlcSetupRuntimeResourcesFcnOfS19B4 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 4, 2, 1, 0)
+%assign tlcSetupRuntimeResourcesFcnOfS19B7 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 7, 2, 1, 1)
+%assign tlcSetupRuntimeResourcesFcnOfS19B8 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 8, 2, 1, 2)
+%assign tlcSetupRuntimeResourcesFcnOfS19B40 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 40, 2, 1, 3)
+%assign tlcSetupRuntimeResourcesFcnOfS19B41 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 41, 2, 1, 4)
+%assign tlcSetupRuntimeResourcesFcnOfS19B42 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 42, 2, 1, 5)
+%assign tlcSetupRuntimeResourcesFcnOfS19B43 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 43, 2, 1, 6)
+%assign tlcSetupRuntimeResourcesFcnOfS19B44 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 44, 2, 1, 7)
+%assign tlcSetupRuntimeResourcesFcnOfS19B45 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 45, 2, 1, 8)
+%assign tlcSetupRuntimeResourcesFcnOfS19B46 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 46, 2, 1, 9)
+%assign tlcSetupRuntimeResourcesFcnOfS19B49 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 49, 2, 1, 10)
+%assign tlcSetupRuntimeResourcesFcnOfS19B53 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 53, 2, 1, 11)
+%assign tlcSetupRuntimeResourcesFcnOfS19B58 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 58, 2, 1, 12)
+%assign tlcSetupRuntimeResourcesFcnOfS19B59 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 59, 2, 1, 13)
+%assign tlcSetupRuntimeResourcesFcnOfS19B60 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 60, 2, 1, 14)
+%assign tlcSetupRuntimeResourcesFcnOfS19B69 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 69, 2, 1, 15)
+%assign tlcSetupRuntimeResourcesFcnOfS19B70 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 70, 2, 1, 16)
+%assign tlcSetupRuntimeResourcesFcnOfS19B74 = OpaqueTLCBlockFcn("SetupRuntimeResources", 19, 74, 2, 1, 17)
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B4)
+/* {S!d4}SetupRuntimeResources for Scope: '<S7>/Scope5' */
+%<tlcSetupRuntimeResourcesFcnOfS19B4>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B7)
+/* {S!d6}SetupRuntimeResources for Scope: '<Root>/Scope' */
+%<tlcSetupRuntimeResourcesFcnOfS19B7>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B8)
+/* {S!d8}SetupRuntimeResources for Scope: '<Root>/Scope1' */
+%<tlcSetupRuntimeResourcesFcnOfS19B8>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B40)
+/* {S!d10}SetupRuntimeResources for Scope: '<Root>/Scope10' */
+%<tlcSetupRuntimeResourcesFcnOfS19B40>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B41)
+/* {S!d12}SetupRuntimeResources for Scope: '<Root>/Scope11' */
+%<tlcSetupRuntimeResourcesFcnOfS19B41>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B42)
+/* {S!d14}SetupRuntimeResources for Scope: '<Root>/Scope14' */
+%<tlcSetupRuntimeResourcesFcnOfS19B42>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B43)
+/* {S!d16}SetupRuntimeResources for Scope: '<Root>/Scope15' */
+%<tlcSetupRuntimeResourcesFcnOfS19B43>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B44)
+/* {S!d18}SetupRuntimeResources for Scope: '<Root>/Scope16' */
+%<tlcSetupRuntimeResourcesFcnOfS19B44>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B45)
+/* {S!d20}SetupRuntimeResources for Scope: '<Root>/Scope2' */
+%<tlcSetupRuntimeResourcesFcnOfS19B45>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B46)
+/* {S!d22}SetupRuntimeResources for Scope: '<Root>/Scope3' */
+%<tlcSetupRuntimeResourcesFcnOfS19B46>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B49)
+/* {S!d24}SetupRuntimeResources for Scope: '<Root>/Scope6' */
+%<tlcSetupRuntimeResourcesFcnOfS19B49>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B53)
+/* {S!d26}SetupRuntimeResources for Scope: '<Root>/State' */
+%<tlcSetupRuntimeResourcesFcnOfS19B53>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B58)
+/* {S!d28}SetupRuntimeResources for Scope: '<Root>/Scope8' */
+%<tlcSetupRuntimeResourcesFcnOfS19B58>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B59)
+/* {S!d30}SetupRuntimeResources for Scope: '<Root>/Scope4' */
+%<tlcSetupRuntimeResourcesFcnOfS19B59>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B60)
+/* {S!d32}SetupRuntimeResources for Scope: '<Root>/Scope7' */
+%<tlcSetupRuntimeResourcesFcnOfS19B60>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B69)
+/* {S!d34}SetupRuntimeResources for Scope: '<Root>/Scope9' */
+%<tlcSetupRuntimeResourcesFcnOfS19B69>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B70)
+/* {S!d36}SetupRuntimeResources for Scope: '<Root>/Scope13' */
+%<tlcSetupRuntimeResourcesFcnOfS19B70>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS19B74)
+/* {S!d38}SetupRuntimeResources for Scope: '<Root>/Scope12' */
+%<tlcSetupRuntimeResourcesFcnOfS19B74>\
+%endif
+/* {S!d40}Start for SimscapeExecutionBlock: '<S50>/STATE_1' */
+tmp = nesl_lease_simulator("simcape_real_time_V2/Solver Configuration_1", 0, 0);
+simcape_real_time_V2_DW.STATE_1_Simulator = (void *)tmp;
+tmp_0 = pointer_is_null(simcape_real_time_V2_DW.STATE_1_Simulator);
+if (tmp_0) {
+    simcape_real_time_V2_e8621d4_1_gateway();
+    tmp = nesl_lease_simulator("simcape_real_time_V2/Solver Configuration_1", 0, 0);
+    simcape_real_time_V2_DW.STATE_1_Simulator = (void *)tmp;
+}
+tmp_1 = nesl_create_simulation_data();
+simcape_real_time_V2_DW.STATE_1_SimData = (void *)tmp_1;
+diagnosticManager = rtw_create_diagnostics();
+simcape_real_time_V2_DW.STATE_1_DiagMgr = (void *)diagnosticManager;
+modelParameters.mSolverType = NE_SOLVER_TYPE_ODE;
+modelParameters.mSolverAbsTol = 0.001;
+modelParameters.mSolverRelTol = 0.001;
+modelParameters.mSolverModifyAbsTol = NE_MODIFY_ABS_TOL_NO;
+modelParameters.mStartTime = 0.0;
+modelParameters.mLoadInitialState = false;
+modelParameters.mUseSimState = false;
+modelParameters.mLinTrimCompile = false;
+modelParameters.mLoggingMode = SSC_LOGGING_NONE;
+modelParameters.mRTWModifiedTimeStamp = 6.08755089E+8;
+tmp_2 = %<(SLibCG_SE(SLibCGIRGetVarStepSolverPropertyValue("RelTol", "0.001")))>;
+modelParameters.mSolverTolerance = tmp_2;
+tmp_2 = %<(SLibCG_SE(SLibCGIRGetFixStepSolverPropertyValue("FixedStep", "0.0")))>;
+modelParameters.mFixedStepSize = tmp_2;
+tmp_0 = %<(SLibCG_SE(SLibCGIRHasCompiledModelPropertyValue("SolverType", "VariableStep")))>;
+modelParameters.mVariableStepSolver = tmp_0;
+tmp_0 = %<(SLibCG_SE(SLibCGIRHasCompiledModelPropertyValue("Solver", "odeN")))>;
+modelParameters.mIsUsingODEN = tmp_0;
+modelParameters.mZcDisabled = true;
+diagnosticManager = (NeuDiagnosticManager *)simcape_real_time_V2_DW.STATE_1_DiagMgr;
+diagnosticTree = neu_diagnostic_manager_get_initial_tree(diagnosticManager);
+tmp_3 = nesl_initialize_simulator((NeslSimulator *)simcape_real_time_V2_DW.STATE_1_Simulator, &modelParameters, diagnosticManager);
+if (tmp_3 != 0) {
+    tmp_0 = error_buffer_is_empty(%<(LibGetRTModelErrorStatus())>);
+    if (tmp_0) {
+        char *msg;
+        msg = rtw_diagnostics_msg(diagnosticTree);
+        %<(LibSetRTModelErrorStatus("msg"))>;
+    }
+}
+/* {E!d40}End of Start for SimscapeExecutionBlock: '<S50>/STATE_1' */
+
+/* {S!d42}Start for SimscapeExecutionBlock: '<S50>/OUTPUT_1_0' */
+tmp = nesl_lease_simulator("simcape_real_time_V2/Solver Configuration_1", 1, 0);
+simcape_real_time_V2_DW.OUTPUT_1_0_Simulator = (void *)tmp;
+tmp_0 = pointer_is_null(simcape_real_time_V2_DW.OUTPUT_1_0_Simulator);
+if (tmp_0) {
+    simcape_real_time_V2_e8621d4_1_gateway();
+    tmp = nesl_lease_simulator("simcape_real_time_V2/Solver Configuration_1", 1, 0);
+    simcape_real_time_V2_DW.OUTPUT_1_0_Simulator = (void *)tmp;
+}
+tmp_1 = nesl_create_simulation_data();
+simcape_real_time_V2_DW.OUTPUT_1_0_SimData = (void *)tmp_1;
+diagnosticManager = rtw_create_diagnostics();
+simcape_real_time_V2_DW.OUTPUT_1_0_DiagMgr = (void *)diagnosticManager;
+modelParameters_0.mSolverType = NE_SOLVER_TYPE_ODE;
+modelParameters_0.mSolverAbsTol = 0.001;
+modelParameters_0.mSolverRelTol = 0.001;
+modelParameters_0.mSolverModifyAbsTol = NE_MODIFY_ABS_TOL_NO;
+modelParameters_0.mStartTime = 0.0;
+modelParameters_0.mLoadInitialState = false;
+modelParameters_0.mUseSimState = false;
+modelParameters_0.mLinTrimCompile = false;
+modelParameters_0.mLoggingMode = SSC_LOGGING_NONE;
+modelParameters_0.mRTWModifiedTimeStamp = 6.08755089E+8;
+tmp_2 = %<(SLibCG_SE(SLibCGIRGetVarStepSolverPropertyValue("RelTol", "0.001")))>;
+modelParameters_0.mSolverTolerance = tmp_2;
+tmp_2 = %<(SLibCG_SE(SLibCGIRGetFixStepSolverPropertyValue("FixedStep", "0.0")))>;
+modelParameters_0.mFixedStepSize = tmp_2;
+tmp_0 = %<(SLibCG_SE(SLibCGIRHasCompiledModelPropertyValue("SolverType", "VariableStep")))>;
+modelParameters_0.mVariableStepSolver = tmp_0;
+tmp_0 = %<(SLibCG_SE(SLibCGIRHasCompiledModelPropertyValue("Solver", "odeN")))>;
+modelParameters_0.mIsUsingODEN = tmp_0;
+modelParameters_0.mZcDisabled = true;
+diagnosticManager = (NeuDiagnosticManager *)simcape_real_time_V2_DW.OUTPUT_1_0_DiagMgr;
+diagnosticTree_0 = neu_diagnostic_manager_get_initial_tree(diagnosticManager);
+tmp_3 = nesl_initialize_simulator((NeslSimulator *)simcape_real_time_V2_DW.OUTPUT_1_0_Simulator, &modelParameters_0, diagnosticManager);
+if (tmp_3 != 0) {
+    tmp_0 = error_buffer_is_empty(%<(LibGetRTModelErrorStatus())>);
+    if (tmp_0) {
+        char *msg_0;
+        msg_0 = rtw_diagnostics_msg(diagnosticTree_0);
+        %<(LibSetRTModelErrorStatus("msg_0"))>;
+    }
+}
+/* {E!d42}End of Start for SimscapeExecutionBlock: '<S50>/OUTPUT_1_0' */
+
+/* {S!d44}Start for DataStoreMemory: '<Root>/Data Store Memory' */
+simcape_real_time_V2_DW.x_a = simcape_real_time_V2_P.DataStoreMemory_InitialValue;
+/* {S!d46}Start for DataStoreMemory: '<Root>/Data Store Memory1' */
+simcape_real_time_V2_DW.z_a = simcape_real_time_V2_P.DataStoreMemory1_InitialValue;
+/* {S!d48}Start for DataStoreMemory: '<Root>/Data Store Memory10' */
+simcape_real_time_V2_DW.start = simcape_real_time_V2_P.DataStoreMemory10_InitialValue;
+/* {S!d50}Start for DataStoreMemory: '<Root>/Data Store Memory2' */
+simcape_real_time_V2_DW.y_a = simcape_real_time_V2_P.DataStoreMemory2_InitialValue;
+/* {S!d52}Start for DataStoreMemory: '<Root>/Data Store Memory3' */
+simcape_real_time_V2_DW.t = simcape_real_time_V2_P.DataStoreMemory3_InitialValue;
+/* {S!d54}Start for DataStoreMemory: '<Root>/Data Store Memory4' */
+simcape_real_time_V2_DW.xyzv[0] = simcape_real_time_V2_P.DataStoreMemory4_InitialValue;
+simcape_real_time_V2_DW.xyzv[1] = simcape_real_time_V2_P.DataStoreMemory4_InitialValue;
+simcape_real_time_V2_DW.xyzv[2] = simcape_real_time_V2_P.DataStoreMemory4_InitialValue;
+simcape_real_time_V2_DW.xyzv[3] = simcape_real_time_V2_P.DataStoreMemory4_InitialValue;
+/* {S!d56}Start for DataStoreMemory: '<Root>/Data Store Memory5' */
+simcape_real_time_V2_DW.Px_pre = simcape_real_time_V2_P.DataStoreMemory5_InitialValue;
+/* {S!d58}Start for DataStoreMemory: '<Root>/Data Store Memory6' */
+simcape_real_time_V2_DW.Py_pre = simcape_real_time_V2_P.DataStoreMemory6_InitialValue;
+/* {S!d60}Start for DataStoreMemory: '<Root>/Data Store Memory7' */
+simcape_real_time_V2_DW.Pz_pre = simcape_real_time_V2_P.DataStoreMemory7_InitialValue;
+/* {S!d62}Start for DataStoreMemory: '<Root>/Data Store Memory8' */
+simcape_real_time_V2_DW.phantram_s = simcape_real_time_V2_P.DataStoreMemory8_InitialValue;
+/* {S!d64}Start for DataStoreMemory: '<Root>/Data Store Memory9' */
+simcape_real_time_V2_DW.N_wp = simcape_real_time_V2_P.DataStoreMemory9_InitialValue;
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedStartLocalVars", localVarDecl)>
+%endfunction
+%function StartFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Start(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(2, 1, fcnProtoType)>
+%endfunction

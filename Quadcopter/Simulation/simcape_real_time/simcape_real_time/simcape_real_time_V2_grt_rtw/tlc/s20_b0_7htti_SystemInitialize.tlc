@@ -1,0 +1,90 @@
+%implements s20_b0_7htti_SystemInitialize "C"
+
+%function SystemInitialize(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign _modelSS = ""
+
+%<SLibInsertAsyncTaskInitializeCode(system)>
+%<SLibWriteMachineInitialize()>
+/* InitializeConditions for UnitDelay: '<S7>/Unit Delay1' */
+simcape_real_time_V2_DW.UnitDelay1_DSTATE = simcape_real_time_V2_P.UnitDelay1_InitialCondition;
+/* InitializeConditions for UnitDelay: '<S7>/Unit Delay2' */
+simcape_real_time_V2_DW.UnitDelay2_DSTATE = simcape_real_time_V2_P.UnitDelay2_InitialCondition;
+/* InitializeConditions for UnitDelay: '<S7>/Unit Delay3' */
+simcape_real_time_V2_DW.UnitDelay3_DSTATE = simcape_real_time_V2_P.UnitDelay3_InitialCondition;
+/* InitializeConditions for UnitDelay: '<S7>/Unit Delay4' */
+simcape_real_time_V2_DW.UnitDelay4_DSTATE = simcape_real_time_V2_P.UnitDelay4_InitialCondition;
+/* InitializeConditions for Integrator: '<Root>/Integrator1' */
+simcape_real_time_V2_X.Integrator1_CSTATE = simcape_real_time_V2_P.x_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator3' */
+simcape_real_time_V2_X.Integrator3_CSTATE = simcape_real_time_V2_P.y_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator5' */
+simcape_real_time_V2_X.Integrator5_CSTATE = simcape_real_time_V2_P.v_z_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator' */
+simcape_real_time_V2_X.Integrator_CSTATE = simcape_real_time_V2_P.v_x_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator2' */
+simcape_real_time_V2_X.Integrator2_CSTATE = simcape_real_time_V2_P.v_y_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator4' */
+simcape_real_time_V2_X.Integrator4_CSTATE = simcape_real_time_V2_P.z_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator7' */
+simcape_real_time_V2_X.Integrator7_CSTATE = simcape_real_time_V2_P.roll_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator9' */
+simcape_real_time_V2_X.Integrator9_CSTATE = simcape_real_time_V2_P.pitch_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator11' */
+simcape_real_time_V2_X.Integrator11_CSTATE = simcape_real_time_V2_P.yaw_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator6' */
+simcape_real_time_V2_X.Integrator6_CSTATE = simcape_real_time_V2_P.v_roll_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator8' */
+simcape_real_time_V2_X.Integrator8_CSTATE = simcape_real_time_V2_P.v_pitch_init;
+/* InitializeConditions for Integrator: '<Root>/Integrator10' */
+simcape_real_time_V2_X.Integrator10_CSTATE = simcape_real_time_V2_P.v_yaw_init;
+%if !SLibCGSysFcnIsEmptyForTid(CompiledModel.System[9], "SystemInitialize",0)
+/* SystemInitialize for MATLAB Function: '<S10>/MATLAB Function10' */
+%if SLibCG_SystemFcnArgAccessed("simcape_r_MATLABFunction10_Init",9,0)
+%assign _modelSS = RTMGetModelSSFromIR()
+%endif
+
+%<SLibCGIRGenReusableSysCall("simcape_r_MATLABFunction10_Init", ["%<_modelSS>", "&simcape_real_time_V2_DW.sf_MATLABFunction10_d"], 9, 1, 4, 0, 4, 19)>\
+%assign ss = ::CompiledModel.System[9]
+%if !LibSystemIsInlined(ss)
+;
+%else
+\
+%endif
+%endif
+%if !SLibCGSysFcnIsEmptyForTid(CompiledModel.System[9], "SystemInitialize",0)
+
+/* SystemInitialize for MATLAB Function: '<S8>/MATLAB Function10' */
+%if SLibCG_SystemFcnArgAccessed("simcape_r_MATLABFunction10_Init",9,0)
+%assign _modelSS = RTMGetModelSSFromIR()
+%endif
+
+%<SLibCGIRGenReusableSysCall("simcape_r_MATLABFunction10_Init", ["%<_modelSS>", "&simcape_real_time_V2_DW.sf_MATLABFunction10"], 9, 0, 4, 0, 4, 19)>\
+%assign ss = ::CompiledModel.System[9]
+%if !LibSystemIsInlined(ss)
+;
+%else
+\
+%endif
+
+%endif
+/* SystemInitialize for MATLAB Function: '<S9>/MATLAB Function10' */
+simcape_real_time_V2_DW.t_g = 0.0;
+/* SystemInitialize for Triggered SubSystem: '<S6>/START' */
+simcape_real_time_V2_PrevZCX.START_Trig_ZCE = ZERO_ZCSIG;
+/* End of SystemInitialize for SubSystem: '<S6>/START' */
+%<SLibInsertInitPeriodicCStatesFcn(system)>
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedSystemInitializeLocalVars", localVarDecl)>
+%endfunction
+%function SystemInitializeFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void SystemInitialize(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(2, 2, fcnProtoType)>
+%endfunction

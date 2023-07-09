@@ -1,0 +1,15 @@
+ToolChainManager/order/0.id=gcc-x86_64-C\:/msys64/mingw64/bin/gcc.exe
+ToolChainManager/order/0.type=org.eclipse.cdt.build.gcc
+ToolChainManager/order/1.id=gcc-x86_64-C\:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe
+ToolChainManager/order/1.type=org.eclipse.cdt.build.gcc
+ToolChainManager/order/n=2
+doctool/workspace.default=org.eclipse.cdt.internal.ui.text.doctools.NullDocCommentOwner
+doxygen/doxygen_new_line_after_brief=true
+doxygen/doxygen_use_brief_tag=true
+doxygen/doxygen_use_javadoc_tags=true
+doxygen/doxygen_use_pre_tag=true
+doxygen/doxygen_use_structural_commands=true
+eclipse.preferences.version=1
+org.eclipse.cdt.core.showSourceRootsAtTopLevelOfProject=true
+org.eclipse.cdt.core.taskPriorities=normal,normal,normal
+org.eclipse.cdt.core.taskTags=TODO,FIXME,XXX
